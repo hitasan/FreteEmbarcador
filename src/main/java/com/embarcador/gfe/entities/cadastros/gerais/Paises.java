@@ -1,13 +1,22 @@
-package com.embarcador.gfe.entities.cadastros;
+package com.embarcador.gfe.entities.cadastros.gerais;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Paises implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	// Atributos da classe
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String filial;
 	private String codigo;
 	private String nome;
@@ -36,9 +45,10 @@ public class Paises implements Serializable {
 	public Paises() {
 	}
 
-	public Paises(String filial, String codigo, String nome, String sigla, String idioma, String descIdioma,String dinalad, String naladi, String certOrigemAladi,
-				  String certOrigemComum, String certOrigemMercosul, String certOrigemSGPC, String exigeLincImport, String paisIngles, String codAbics,
-				  String codigoRIEX, String codSisxomex, String codigoFiesp, String claveMexico, String nacionalidad, String codERP, String codPaisDUE) {
+	public Paises(Long id, String filial, String codigo, String nome, String sigla, String idioma, String descIdioma,String dinalad, String naladi, String certOrigemAladi,String certOrigemComum,
+				  String certOrigemMercosul, String certOrigemSGPC, String exigeLincImport, String paisIngles, String codAbics,String codigoRIEX, String codSisxomex, String codigoFiesp,
+				  String claveMexico, String nacionalidad, String codERP, String codPaisDUE) {
+		this.id = id;
 		this.filial = filial;
 		this.codigo = codigo;
 		this.nome = nome;
@@ -65,6 +75,9 @@ public class Paises implements Serializable {
 
 	
 	// Getters / Setters
+	public Long getId() { return id; }
+	public void setId(Long id) { this.id = id; }
+
 	public String getFilial() { return filial; }
 	public void setFilial(String filial) { this.filial = filial; }
 
@@ -133,7 +146,8 @@ public class Paises implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Paises [filial=" + filial
+		return "Paises [id=" + id
+				   + ", filial=" + filial
 		           + ", codigo=" + codigo
 		           + ", nome=" + nome
 		           + ", sigla=" + sigla
@@ -161,20 +175,24 @@ public class Paises implements Serializable {
 	// Hashcod / Equals
 	@Override
 	public int hashCode() {
-		return Objects.hash(codERP, codigo, filial, nome);
+		return Objects.hash(id, filial, codigo, nome, codERP);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
+
 		if (obj == null)
 			return false;
+
 		if (getClass() != obj.getClass())
 			return false;
+
 		Paises other = (Paises) obj;
-		return Objects.equals(codERP, other.codERP) && Objects.equals(codigo, other.codigo)
-				&& Objects.equals(filial, other.filial) && Objects.equals(nome, other.nome);
+
+		return Objects.equals(id, other.id) && Objects.equals(filial, other.filial) && Objects.equals(codigo, other.codigo) && Objects.equals(nome, other.nome) && Objects.equals(codERP, other.codERP);
+				
 	}
 	
 	
