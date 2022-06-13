@@ -1,0 +1,21 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="filialForm">
+    <div class="po-row">
+      <po-input class="po-md-6 po-lg-4" formControlName="codigo" p-label="Código"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="descricao" p-label="Descricao"> </po-input>
+    </div>
+
+    <div class="po-row">
+      <po-input class="po-md-6 po-lg-4" formControlName="nomecomercial" p-label="Nome Comercial"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="razaosocial" p-label="Razão Social"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="idfed" p-label="CPF/CNPJ"> </po-input>
+    </div>
+
+    <div class="po-row">
+      <po-input class="po-md-6 po-lg-4" formControlName="telefone" p-label="Telefone"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="fax" p-label="Fax"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="inscrmunicipal" p-label="Inscr.Municipal"> </po-input>
+      <po-input class="po-md-6 po-lg-4" formControlName="inscrestadual" p-label="Inscr.Estadual"> </po-input>
+    </div>
+  </form>
+</po-page-edit>

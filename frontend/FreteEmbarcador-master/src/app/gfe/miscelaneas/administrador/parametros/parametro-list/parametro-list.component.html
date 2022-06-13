@@ -1,0 +1,17 @@
+<po-page-list p-title="Cadastro de Parâmetros" [p-actions]="actions">
+
+  <po-table
+    p-container="shadow"
+    p-checkbox
+    [p-loading]="isTableLoading"
+    [p-actions]="tableActions"
+    [p-actions-right]="true"
+    [p-columns]="columns"
+    [p-selectable]="true"
+    [p-single-select]="true"
+    [p-sort]="true"
+    [p-striped]="true"
+    [p-items]="parametros">
+  </po-table>
+
+</po-page-list>

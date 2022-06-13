@@ -1,0 +1,13 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+    <form [formGroup]="grupoempresaForm">
+      <div class="po-row">
+        <po-input class="po-md-6 po-lg-2" formControlName="codigo" p-label="Código"> </po-input>
+        <po-input class="po-md-6 po-lg-8" formControlName="descricao" p-label="Descrição"> </po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-md-6 po-lg-1" formControlName="tamanho" p-label="Tamanho"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="layout" p-label="Layout"> </po-input>
+      </div>
+    </form>
+</po-page-edit>

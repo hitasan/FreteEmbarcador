@@ -1,0 +1,16 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Login" [p-value]="usuario.codigo"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Nome" [p-value]="usuario.nome"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="E-mail" [p-value]="usuario.email"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Cargo" [p-value]="usuario?.cargo"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Status" [p-value]="usuario?.status"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Data alteração status" [p-value]="usuario?.datastatus"> </po-info>
+  </div>
+</po-page-detail>

@@ -1,0 +1,20 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="ID" [p-value]="cidade?.id"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Nome" [p-value]="cidade?.name"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Email" [p-value]="cidade?.email"></po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Data de Nascimento" [p-value]="cidade?.birthday"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="CPF" [p-value]="cidade?.cpf"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Genêro" [p-value]="cidade?.genre"> </po-info>
+  </div>
+
+  <po-divider p-label="ENDEREÇO"> </po-divider>
+
+  <po-info class="po-md-6" p-label="CEP" [p-value]="cidade?.zipcode"></po-info>
+  <po-info class="po-md-6" p-label="Número" [p-value]="cidade?.address_number"></po-info>
+
+</po-page-detail>

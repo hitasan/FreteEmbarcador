@@ -1,0 +1,10 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+    <form [formGroup]="parametroForm">
+      <div class="po-row">
+        <po-input class="po-md-6 po-lg-4" formControlName="filial" p-label="Filial"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="parametro" p-label="Parâmetro"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="descricao" p-label="Descrição"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="conteudo" p-label="Conteudo"> </po-input>
+      </div>
+    </form>
+</po-page-edit>

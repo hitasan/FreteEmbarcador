@@ -1,0 +1,483 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="configParamForm">
+    <po-tabs>
+      <po-tab p-label="Expedição/Recebimento" p-active>
+        <po-divider class="po-md-12" p-label="Vale Pedágio"></po-divider>
+        <div class="po-row">
+          <po-lookup class="po-lg-4" name="MV_GFEOVP" p-field-label="label" p-field-value="label" p-help="Selecione o fornecedor operador do vale pedágio" p-label="Operadora Vale Pedágio" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Fornecedores' }"> </po-lookup>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Trânsito/Entregas"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-2" name="MV_GFEQBR" p-label="% Máx Quebra Peso" [p-max]="max" [p-step]="step" [p-maxlength]="maxlength" [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-2"name="MV_GFEIND" p-label="Descontar Indenizações" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Documento de Carga"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-4"name="MV_GFETRP" p-label="Doc. Carga x Romaneio" [p-options]="[{ value: '1 - Sem Restrição' },{ value: '2 - Somente com o mesmo Transportador' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_RECPRZ" p-label="Recalcula Prazos" [p-options]="[{ value: '0 - Não' },{ value: '1 - Somente Posterga' },{ value: '2 - Antecipa e Posterga' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_RENTNP" p-label="Registrar Entrega de Documentos de Carga" [p-options]="[{ value: '1 - Somente Trechos Pagos' },{ value: '2 - Todos os Trechos' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-4"name="MV_TREDESP" p-label="Redespachantes" [p-options]="[{ value: '1 - Sem Restrição' },{ value: '2 - Somente com o mesmo Transportador' }]"> </po-combo>
+          <po-combo class="po-lg-4"name="MV_SITEDC" p-label="Situação Doc. Carga com Ocorrência Entrega" [p-options]="[{ value: '1 - Trechos pagos entregues/último trecho' },{ value: '2 - Todos trechos entregues' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Romaneio"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_DTROMV" p-label="Data liberação romaneio na partida viagem" [p-options]="[{ value: '1 - Dt Criação' },{ value: '2 - Dt Partida' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_NFEENV" p-label="Envio XML NFe" [p-options]="[{ value: '1 - Não Enviar' },{ value: '2 - Automática' },{ value: '3 - Sob Demanda' }]"> </po-combo>
+          <po-input class="po-lg-6" formControlName="MV_NFEDIR" p-label="Diretório XML NFe" p-clean> </po-input>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Pátio/Portaria">
+        <po-divider class="po-md-12" p-label="Geral"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_MAOTCAN" p-label="Motivo Cancel. Agendamento" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-switch class="po-lg-4" name="MV_GFEPP04" p-label="Permite Relacionar mais de 1 romaneio nas movimentações"> </po-switch>
+          <po-combo class="po-lg-4"name="MV_GFE012" p-label="Condição Agendam. Doc Carga" [p-options]="[{ value: '0 - Sem Restrição' },{ value: '1 - Em Romaneio' },{ value: '2 - Em Romaneio Liberado ou Encerrado' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Portaria"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFEPVE" p-label="Permite incluir veículo na portaria?" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFECPL" p-label="Código do veículo" [p-options]="[{ value: '1 - Sugerido Sistema' },{ value: '2 - Placa do veículo' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEPMT" p-label="Permite incluir motorista na portaria?" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEMVPE" p-label="Ação Mov Pendente" [p-options]="[{ value: '1 - Nenhum' },{ value: '2 - Alertar' },{ value: '3 - Bloquear' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Validação Peso"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-2" name="MV_GFEPP01" p-label="% Tolerância PBT" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-3" name="MV_GFEPP02" p-label="% Tolerância Peso Min. Doc. Carga" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-3" name="MV_GFEPP03" p-label="% Tolerância Peso Max. Doc. Carga" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Tabela de Frete">
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_TIPREG" p-label="Regionalização" [p-options]="[{ value: '1 - de Terceiro' },{ value: '2 - Próprio' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFETAB1" p-label="Estrutura de Tabelas de Frete" [p-options]="[{ value: '1 - Uma por Transportador' },{ value: '2 - Sem restrição' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_APRTAB" p-label="Controle de Aprovação" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_APRCOP" p-label="Envio Aprovação após Registro Comparativo" [p-options]="[{ value: '0 - Não enviar' },{ value: '1 - Automático' },{ value: '2 - Perguntar' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_SERVTO" p-label="Serviço por Tipo de Ocorrência" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Cálculo de Frete">
+        <po-divider class="po-md-12" p-label="Geral"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_ESCTAB" p-label="Critério de seleção" [p-options]="[{ value: '1 - Escolha do Usuário' },{ value: '2 - Menor Valor Frete' },{ value: '3 - Menor Prazo Entrega' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_ESCTBAT" p-label="Critério de Seleção Cálculo Automático" [p-options]="[{ value: '1 - Menor Valor Frete' },{ value: '2 - Menor Prazo Entrega' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFETROT" p-label="Rotas Coincidentes" [p-options]="[{ value: '1 - Escolher' },{ value: '2 - Compor' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_CRIRAT" p-label="Critério de Rateio" [p-options]="[{ value: '1 - Peso Mercadoria' },{ value: '2 - Valor Mercadoria' },{ value: '3 - Volume' },{ value: '4 - Quantidade' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-switch class="po-lg-3" name="MV_CRIVAL" p-label="Valida Critério com Itens Doc.Carga"> </po-switch>
+          <po-combo class="po-lg-3"name="MV_ACGRRAT" p-label="Ação p/ item sem Rat. Contábil" [p-options]="[{ value: '0 - Nenhuma' },{ value: '1 - Alertar' },{ value: '2 - Desfazer Cálculo' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEOPC" p-label="Grava Peso Cubado Calculado?" [p-options]="[{ value: '0 - Não' },{ value: '1 - Sim' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TREENTR" p-label="Local de Entrega" [p-options]="[{ value: '0 - Origem e Destino' },{ value: '1 - Trecho do Itinerário' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-input class="po-lg-2" formControlName="MV_UMPESO" p-label="Unid. Med. p/ Quilograma" p-clean> </po-input>
+          <po-combo class="po-lg-2"name="MV_DIMRET" p-label="Local de Entrega" [p-options]="[{ value: '1 - Manter' },{ value: '2 - Retirar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_LOGCALC" p-label="Gera Log de Cálculo?" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-4"name="MV_GFEAJDF" p-label="Ajuste Cálculo com Doc.Frete e/ou Lote Provisão" [p-options]="[{ value: '1 - Somente sem documento de frete e lote de provisão' },{ value: '2 - Sem Restrição' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-6"name="MV_GFE005" p-label="Documento de Carga x Documento de Frete" [p-options]="[{ value: '1 - Não permite recalcular' },{ value: '2 - Permite recalcular somente com documento de frete não aprovado' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Busca Negociação"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_LOCTVEI" p-label="Tipo Veículo informado" [p-options]="[{ value: '1 - Lotação Fracionada e Fechada' },{ value: '2 - Lotação Fechada' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFE006" p-label="Tipo Veículo para Cálculo" [p-options]="[{ value: '1 - Sempre do Romaneio' },{ value: '2 - Do Trecho Quando Preenchido' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Impostos"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFECRIC" p-label="ICMS Frete" [p-options]="[{ value: '1 - com Direito a Crédito' },{ value: '2 - sem Direito a Crédito' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_CRDPAR" p-label="Crédito ICMS" [p-options]="[{ value: '1 - Total' },{ value: '2 - Parcial, conforme Itens Nota' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_ICMSST" p-label="ICMS ST" [p-options]="[{ value: '1 - com Direito a Crédito' },{ value: '2 - sem Direito a Crédito' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEPC" p-label="PIS/COFINS Frete" [p-options]="[{ value: '1 - com Direito a Crédito' },{ value: '2 - sem Direito a Crédito' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_PICOTR" p-label="PIS/COFINS Transferência" [p-options]="[{ value: '1 - com Direito a Crédito' },{ value: '2 - sem Direito a Crédito' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_PCPIS" p-label="Alíquota PIS" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_PCCOFI" p-label="Alíquota COFINS" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-3"name="MV_ISSBAPI" p-label="ISS no PIS/COFINS" [p-options]="[{ value: '1 - Manter' },{ value: '2 - Retirar' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_PISDIF" p-label="Alíquota PIS Diferenciada" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <div class="po-row">
+          <po-number class="po-lg-3" name="MV_COFIDIF" p-label="Alíquota COFINS Diferenciada" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-2"name="MV_ICMBAPI" p-label="ICMS Ret no PIS/COFINS" [p-options]="[{ value: '1 - Manter' },{ value: '2 - Retirar Retido' },{ value: '3 - Retirar Total' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_ICMSPA" p-label="Calcula ICMS de Pauta" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Log"></po-divider>
+        <div class="po-row">
+          <po-input class="po-lg-6" formControlName="MV_DRTLOG" p-label="Diretório do LOG" p-clean> </po-input>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Adicional de Frete"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_CALDEV" p-label="Valor Devolução" [p-options]="[{ value: '1 - Permite Alterar' },{ value: '2 - Não Permite Alterar' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_CALREN" p-label="Valor Reentrega" [p-options]="[{ value: '1 - Permite Alterar' },{ value: '2 - Não Permite Alterar' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_CALSER" p-label="Valor Serviço" [p-options]="[{ value: '1 - Permite Alterar' },{ value: '2 - Não Permite Alterar' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Romaneio"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-2" name="MV_GFELIM1" p-label="Valor Máx. Frete Romaneio" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-3"name="MV_GFELAC1" p-label="Ação Frete Romaneio Excedido" [p-options]="[{ value: '0 - Nenhuma' },{ value: '1 - Alertar' },{ value: '2 - Desfazer Cálculo' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Cálculo de Frete"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-2" name="MV_GFELIM2" p-label="Valor Máx. Frete Cálculo" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-2"name="MV_GFELAC2" p-label="Ação Frete Cálculo Excedido" [p-options]="[{ value: '0 - Nenhuma' },{ value: '1 - Alertar' },{ value: '2 - Desfazer Cálculo' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_GFELIM3" p-label="% Máx Frete/Valor Carga" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-2"name="MV_GFELAC3" p-label="Ação % Frete/Valor Excedido" [p-options]="[{ value: '0 - Nenhuma' },{ value: '1 - Alertar' },{ value: '2 - Desfazer Cálculo' }]"> </po-combo>
+          <po-number class="po-lg-3" name="MV_GFELIM4" p-label="Val Máx Frete/Peso Carga (Ton)" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFELAC4" p-label="Ação Val. Frete/Peso Excedido" [p-options]="[{ value: '0 - Nenhuma' },{ value: '1 - Alertar' },{ value: '2 - Desfazer Cálculo' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Frete Minimo por Romaneio"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_CRIRAT2" p-label="Critério de Rateio Frete Min. Romaneio" [p-options]="[{value: '1 - Valor do Frete'},{value: '2 - Peso Carga'},{value: '3 - Valor Carga'},{value: '4 - Quantidade Itens'},{ value: '5 - Volume Carga' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_CRIRAT3" p-label="Valor usado Rateio/Frete Min. por Romaneio" [p-options]="[{value: '1 - Diferença'},{value: '2 - Total Frete Mínimo'}]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Performance Cálculo de Frete"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-5"name="MV_GFEGVR" p-label="Realizar busca de tab. frete considerando GVR(Região x Regiões)?" [p-options]="[{value: '1 - Sim'},{value: '2 - Não'}]"> </po-combo>
+          <po-combo class="po-lg-5"name="MV_GFEGUL" p-label="Realizar busca de tab. frete considerando GUL(Região x Faixa CEP)?" [p-options]="[{value: '1 - Sim'},{value: '2 - Não'}]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-4"name="MV_GFEVIN" p-label="Realizar busca de tab. frete considerando Tabelas de Vinculo?" [p-options]="[{value: '1 - Sim'},{value: '2 - Não'}]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Contrato de Frete"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFELAC5" p-label="Ação ao Exceder o Limite do Contrato" [p-options]="[{value: '0 - Nenhum'},{value: '1 - Alertar'},{value: '2 - Desfazer Cálculo'}]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Pré-Faturas">
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_PFENTR" p-label="Registro de Entrega" [p-options]="[{ value: '0 - Prova de Entrega' },{ value: '1 - Informação de Entrega' },{ value: '2 - Nenhuma' }]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Doc.Frete/Fatura">
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_OBINENT" p-label="Cálculo Normal" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_OBREDE" p-label="Cálculo Redespacho" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_OBCOMP" p-label="Cálculo Complementar" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_OBREEN" p-label="Cálculo Reentrega" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_OBDEV" p-label="Cálculo Devolução" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_OBSERV" p-label="Cálculo Serviços" [p-options]="[{ value: '1 - Obrigatório' },{ value: '2 - Opcional' }]"> </po-combo>
+          <po-input class="po-lg-2" formControlName="MV_CFOFR1" p-label="CFOP ICMS Estadual" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="MV_CFOFR2" p-label="CFOP ICMS Interestadual" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="MV_CFOFR3" p-label="CFOP ISS Mesmo Municipio" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="MV_CFOFR4" p-label="CFOP ISS Outro Municipio" p-clean> </po-input>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFEVLDT" p-label="Identificação Única Doc. Frete" [p-options]="[{ value: '1 - Número' },{ value: '2 - Número e Série' },{ value: '3 - Número, Série e Data de Emissão' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_VLCNPJ" p-label="Transportador Doc. Frete" [p-options]="[{ value: '1 - Somente Transp. Nota' },{ value: '2 - Considera mesma raiz CNPJ' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFEVLFT" p-label="Identificação Única Fatura" [p-options]="[{ value: '1 - Número' },{ value: '2 - Número e Série' },{ value: '3 - Número, Série e Data de Emissão' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_PDGPIS" p-label="pedágio PIS/COFINS" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEPF1" p-label="Condição associar Pré-Fatura" [p-options]="[{ value: '1 - Confirmada' },{ value: '2 - Enviada' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-switch class="po-lg-3" name="MV_CHVNFE" p-label="Consulta chave do CTe no Portal SEFAZ?"> </po-switch>
+          <po-combo class="po-lg-3"name="MV_GFECVFA" p-label="Calendário vencimento fatura avulsa" [p-options]="[{ value: '1 - Conforme cadastro emitente' },{ value: '2 - Nunca' },{ value: '3 - Sempre' }]"> </po-combo>
+          <po-lookup class="po-lg-4" name="MV_ESPDF4" p-field-label="Espécie Doc.Frete Subcontratação" p-field-value="label" p-label="Espécie Doc.Frete Subcontratação" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters" > </po-lookup>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFEROTR" p-label="Dt Liberação Romaneio/transp obrigatórios" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Auditoria de Frete">
+        <po-divider class="po-md-12" p-label="Documento de Frete"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_DCOUT" p-label="Confere Dados Carga?" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_DCABE" p-label="Valor Detalhado" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_DCTOT" p-label="Valor Total" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_DCVAL" p-label="Diferença Máx Valor" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_DCPERC" p-label="Diferença Máx Percentual" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_DCNEG" p-label="Diferença Menor" [p-options]="[{ value: '1 - Aprovar' },{ value: '2 - Conferir' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFE011" p-label="Auditoria Doc. Complementar" [p-options]="[{ value: '1 - Auditar normalmente' },{ value: '2 - Exigir aprovação' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_AUDINF" p-label="Auditoria Frete Combinado" [p-options]="[{ value: '1 - Auditar normalmente' },{ value: '2 - Exigir aprovação' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEDCFA" p-label="Controle Compensação Divergências" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Fatura x Pré-Fatura"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_CFCONPG" p-label="Data Vencimento" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_CFAGRUP" p-label="Agrupamento" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_CFVLFAT" p-label="Valor" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_CFVLVAR" p-label="Diferença Máx Valor" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_CFPCVAR" p-label="Diferença Máx Percentual" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_PFOBRIG" p-label="PF Obrigatória" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Contrato Autônomo">
+        <po-divider class="po-md-12" p-label="IRRF"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_APUIRF" p-label="Apuração IRRF/INSS" [p-options]="[{ value: '1 - Centralizado' },{ value: '2 - Por Filial' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFE016" p-label="Data Referência para apuração IRRF" [p-options]="[{ value: '1 - Data de Criação' },{ value: '2 - Data de Vencimento' }]"> </po-combo>
+          <po-number class="po-lg-2" name="MV_BASIRF" p-label="% Base IRRF" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-combo class="po-lg-2"name="MV_DEDINS" p-label="INSS Base IRRF" [p-options]="[{ value: '1 - Descontar' },{ value: '2 - Manter' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_DEDSES" p-label="SEST/SENAT Base IRRF" [p-options]="[{ value: '1 - Descontar' },{ value: '2 - Manter' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-number class="po-lg-2" name="MV_MINIRF" p-label="Valor Minimo IRRF" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="INSS"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-1" name="MV_BASINS" p-label="% Base INSS" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_PCINAU" p-label="% INSS Autônomo" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_VLMXRE" p-label="Valor Máximo INSS" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-2" name="MV_PCINEM" p-label="% INSS Embarcador" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <br />
+
+        <po-divider class="po-md-12" p-label="Outros"></po-divider>
+        <div class="po-row">
+          <po-number class="po-lg-1" name="MV_PCSEST" p-label="% SEST" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+          <po-number class="po-lg-1" name="MV_PCSENA" p-label="% SENAT" [p-max]=999 p-maxlength=3 [p-mask]="mask" > </po-number>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Contabilização">
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_TPGRP1" p-label="Grupo Contábil 1" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TPGRP2" p-label="Grupo Contábil 2" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TPGRP3" p-label="Grupo Contábil 3" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TPGRP4" p-label="Grupo Contábil 4" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TPGRP5" p-label="Grupo Contábil 5" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_TPGRP6" p-label="Grupo Contábil 6" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TPGRP7" p-label="Grupo Contábil 7" [p-options]="[ { value: '1 - Filial' },{ value: '2 - Tipo Operação' },{ value: '3 - Item' },{ value: '4 - Reg Comecial' },{ value: '5 - Grupo Emitente' },{ value: '6 - Tipo Doc Carga' },{ value: '7 - Classificação Frete' },{ value: '8 - Tipo de Frete' },{ value: '9 - Info Ctb 1' },{ value: '10 - Info Ctb 2' },{ value: '11 - Info Ctb 3' },{ value: '12 - Info Ctb 4' },{ value: '13 - Info Ctb 5' },{ value: '14 - Representante' },{ value: '15 - Unidade de Negócio' },{ value: '16 - CFOP Item Doc Carga' },{ value: '17 - Tipo de Serviço' },{ value: '18 - Grupo de Transportador' },{ value: '19 - Série Doc Carga' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_PROVCON" p-label="Provisão Contábil" [p-options]="[ { value: '1 - Despesa Total' },{ value: '2 - Despesa menos Impostos Recuperáveis' },{ value: '3 - Despesa menos Impostos' },{ value: '4 - Despesa e Impostos Recuperáveis' }]"> </po-combo>
+          <po-datepicker class="po-lg-2" name="MV_DTULFE" p-label="Data Ultimo Fechamento" p-clean > </po-datepicker>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_TPGERA" p-label="Tipo Geração Contábil" [p-options]="[ { value: '1 - Automática' },{ value: '2 - Sob Demanda' }]"> </po-combo>
+          <po-lookup class="po-lg-4" name="MV_EMIPRO" p-field-label="Emitente Estimativa" p-field-value="label" p-label="Emitente Estimativa" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters" > </po-lookup>
+          <po-input class="po-lg-2" formControlName="MV_TABPRO" p-label="Tabela Estimativa" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="MV_NEGPRO" p-label="Negociação Estimativa" p-clean> </po-input>
+          <po-combo class="po-lg-2"name="MV_LOGCONT" p-label="Gera log Contabilização?" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_TPEST" p-label="Tipo Estorno Provisão" [p-options]="[ { value: '1 - Total' },{ value: '2 - Parcial' }]"> </po-combo>
+          <po-input class="po-lg-3" formControlName="MV_PEPRONO" p-label="Período Saldo Prov. Normal (Meses)" p-clean> </po-input>
+          <po-input class="po-lg-3" formControlName="MV_PEPROES" p-label="Período Saldo Prov. Estimativa (Meses)" p-clean> </po-input>
+          <po-input class="po-lg-3" formControlName="MV_PEPROAD" p-label="Período Saldo Prov. Adicional (Meses)" p-clean> </po-input>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Colaboração">
+        <po-divider class="po-md-12" p-label="GERAL"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_SPEDCOL" p-label="Utiliza Totvs Colaboração?" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEVPRT" p-label="Valida protocolo/assinatura CTe?" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_IMPPRO" p-label="Ação" [p-options]="[ { value: '1 - Importar' },{ value: '2 - Importar e Processar' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="VERSÃO 1.0"></po-divider>
+        <div class="po-row">
+          <po-input class="po-lg-5" formControlName="MV_XMLDIR" p-label="Diretório do XML Totvs Colaboração" p-clean> </po-input>
+          <po-combo class="po-lg-3"name="MV_AMBCTEC" p-label="Ambiente Neogrid para recebimento CT-e" [p-options]="[ { value: '1 - Produção' },{ value: '2 - Homologação' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_AMBICOL" p-label="Ambiente Neogrid para recebimento NF-e" [p-options]="[ { value: '1 - Produção' },{ value: '2 - Homologação' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_CONFALL" p-label="Confirma Doctos Colaboração?" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_DOCSCOL" p-label="Tipo Doctos para TSS transmitir" [p-options]="[ { value: '0 - Todos' },{ value: '1 - NFE' },{ value: '2 - CTE' },{ value: '3 - NFSe' },{ value: '4 - Somente Recebimento' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-input class="po-lg-5" formControlName="MV_SPEDURL" p-label="URL de comunicação com TSS" p-clean> </po-input>
+          <po-input class="po-lg-3" formControlName="MV_NRETCOL" p-label="Quantidade registro por importação TSS" p-clean> </po-input>
+        </div>
+        <div class="po-row">
+          <po-input class="po-lg-4" formControlName="MV_USERCOL" p-label="Usuário" p-clean> </po-input>
+          <po-input class="po-lg-4" formControlName="MV_PASSCOL" p-label="Senha" p-clean> </po-input>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="VERSÃO 2.0"></po-divider>
+        <div class="po-row">
+          <po-input class="po-lg-4" formControlName="MV_TCNEW" p-label="Tipos Docto Transmitidos" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="MV_VERCTE" p-label="Versão CT-e" p-clean> </po-input>
+          <po-input class="po-lg-5" formControlName="MV_NGOUT" p-label="Diretório de Saída" p-clean> </po-input>
+        </div>
+        <div class="po-row">
+          <po-input class="po-lg-5" formControlName="MV_NGINN" p-label="Diretório de Entrada" p-clean> </po-input>
+          <po-input class="po-lg-5" formControlName="MV_NGLIDOS" p-label="Diretório de arquivos lidos" p-clean> </po-input>
+        </div>
+        <div class="po-row">
+          <po-input class="po-lg-5" formControlName="MV_GFETOTC" p-label="Tempo espera para processar ret. consulta" p-clean> </po-input>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Integração EDI">
+        <div class="po-row">
+          <po-lookup class="po-lg-2" name="MV_ESPDF1" p-field-label="Espécie CTR" p-field-value="label" p-label="Espécie CTR" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-2" name="MV_ESPDF3" p-field-label="Espécie CT-e" p-field-value="label" p-label="Espécie CT-e" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-2" name="MV_ESPDF2" p-field-label="Espécie NFST" p-field-value="label" p-label="Espécie NFST" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-combo class="po-lg-2"name="MV_REGOCO" p-label="Ocorrência Entrega" [p-options]="[ { value: '1 - sem Ocorrência' },{ value: '2 - com Ocorrência' }]"> </po-combo>
+          <po-lookup class="po-lg-2" name="MV_CDTIPOE" p-field-label="Código Ocorrência Entrega" p-field-value="label" p-label="Código Ocorrência Entrega" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFEOCO" p-label="Data Retroativa Ocorrência Entrega" [p-options]="[ { value: '1 - Não permite data retroativa' },{ value: '2 - Somente ocorrências EDI' },{ value: '3 - Todas ocorrências' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEEDIL" p-label="Tipo geração log" [p-options]="[ { value: '1 - Não gerar' },{ value: '2 - Normal' },{ value: '3 - Modo debug' },{ value: '4 - Modo console' }]"> </po-combo>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Integração ERP">
+        <po-divider class="po-md-12" p-label="OPÇÕES DE INTEGRAÇÃO"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_CADERP" p-label="Origem cadastros" [p-options]="[ { value: '1 - ERP' },{ value: '2 - SIGAGFE' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_ERPGFE" p-label="ERP Integrado" [p-options]="[ { value: '1 - Datasul' },{ value: '2 - Protheus' },{ value: '3 - RM' },{ value: '4 - Logix' },{ value: '5 - Outro' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI13" p-label="Doc Frete Fical" [p-options]="[ { value: '1 - sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI14" p-label="Doc Frete Custo" [p-options]="[ { value: '1 - sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI15" p-label="Pré-Fatura Financeiro" [p-options]="[ { value: '1 - sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_GFEI16" p-label="Fatura Financeiro" [p-options]="[ { value: '1 - ERP' },{ value: '2 - SIGAGFE' }]"> </po-combo>
+          <po-combo class="po-lg-3"name="MV_GFEI23" p-label="Fiscal pré-requisito p/ atualização financeiro" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI17" p-label="Contrato Financeiro" [p-options]="[ { value: '1 - sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI18" p-label="Contrato Custo" [p-options]="[ { value: '1 - sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="PADRÕES SUGERIDOS"></po-divider>
+        <div class="po-row">
+          <po-lookup class="po-lg-2" name="MV_CDCLFR" p-field-label="Classificaão Frete Padrão" p-field-value="label" p-label="Classificação Frete Padrão" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="AÇÕES DE USUÁRIOS"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-3"name="MV_GFE001" p-label="Ação sobre Doc Carga ERP" [p-options]="[ { value: '1 - Nenhuma' },{ value: '2 - Somente Cancelar' },{ value: '3 - Cancelar e Eliminar' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="COMUNICAÇÃO"></po-divider>
+        <div class="po-row">
+          <po-input class="po-lg-5" formControlName="MV_EAIURL" p-label="Url EAI" p-clean> </po-input>
+          <po-input class="po-lg-5" formControlName="MV_EAIPORT" p-label="Porta EAI" p-clean> </po-input>
+        </div>
+        <br /><br />
+      </po-tab>
+
+      <po-tab p-label="Integração Protheus">
+        <po-divider class="po-md-12" p-label="GERAIS"></po-divider>
+        <div class="po-row">
+          <po-switch class="po-lg-2" name="MV_INTGFE" p-label="GFE Ativo"> </po-switch>
+          <po-combo class="po-lg-2"name="MV_INTGFE2" p-label="Modo Integração" [p-options]="[ { value: '1 - Direta' },{ value: '2 - com EAI/ESB' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_EMITMP" p-label="Código do Emitente" [p-options]="[ { value: '0 - CNPJ/CPF' }, { value: '1 - Numeração Própria' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="FATURAMENTO"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_GFEI11" p-label="Nota Fiscal de Saída" [p-options]="[ { value: '1 - Integrar' },{ value: '2 - Não Integrar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_FATGFE" p-label="Impede Faturamento" [p-options]="[ { value: '1 - Sim' }, { value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEVLIT" p-label="Valor do item" [p-options]="[ { value: '1 - Valor Bruto' }, { value: '2 - Valor Total' }]"> </po-combo>
+          <po-switch class="po-lg-2" name="MV_GFEIDTE" p-label="Registrar Entrega"> </po-switch>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="OMS"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_GFEI12" p-label="Carga" [p-options]="[ { value: '1 - Integrar' },{ value: '2 - Não Integrar' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_CADOMS" p-label="Origem dos Cadastros" [p-options]="[ { value: '1 - OMS' }, { value: '2 - GFE' }]"> </po-combo>
+          <po-lookup class="po-lg-3" name="MV_CDTPOP" p-field-label="Tipo Operação Padrão" p-field-value="label" p-label="Tipo Operação Padrão" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="Compras"></po-divider>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_GFEI10" p-label="Nota Fiscal Entrada" [p-options]="[ { value: '1 - Integrar' },{ value: '2 - Não Integrar' }]"> </po-combo>
+          <po-lookup class="po-lg-2" name="MV_CPDGFE" p-field-label="Cond. Pagto. Padrão" p-field-value="label" p-label="Cond. Pagto. Padrão" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-3" name="MV_PRITDF" p-field-label="Cód. Prod. Registro Entrada" p-field-value="label" p-label="Cód. Prod. Registro Entrada" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-combo class="po-lg-2"name="MV_ESCPED" p-label="Pedágio Tes Própria" [p-options]="[ { value: '1 - Sim' }, { value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TESGFE" p-label="TES Doc. Frete" [p-options]="[ { value: '1 - Atribuído Sistema' }, { value: '2 - Informado Usuário' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-combo class="po-lg-2"name="MV_SIGFE" p-label="Solicita Info Integr." [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="FINANCEIRO"></po-divider>
+        <div class="po-row">
+          <po-lookup class="po-lg-3" name="MV_NTFGFE" p-field-label="Natureza Titulo a Pagar" p-field-value="label" p-label="Natureza Titulo a Pagar" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-combo class="po-lg-2"name="MV_GFEISS" p-label="Utiliza ISS" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEIRRF" p-label="Utiliza IRRF" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEINSS" p-label="Utiliza INSS/SEST" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+        </div>
+        <br />
+        <po-divider class="po-md-12" p-label="TMS"></po-divider>
+        <div class="po-row">
+          <po-switch class="po-lg-2" name="MV_TMSGFE" p-label="Redespachos"> </po-switch>
+          <po-combo class="po-lg-2"name="MV_TMS2GFE" p-label="Ocorrências" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI22" p-label="Integração Automática" [p-options]="[ { value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_TMS3GFE" p-label="Viagens" [p-options]="[ { value: '1 - Não Integrar' },{ value: '2 - Fechamento da Viagem' },{ value: '3 - Saída da Viagem' },{ value: '4 - Chegada da Viagem' }]"> </po-combo>
+          <po-combo class="po-lg-2"name="MV_GFEI21" p-label="Custos de transporte" [p-options]="[ { value: '1 - Sob Demanda' },{ value: '2 - Automático' },{ value: '3 - Não Integrar' }]"> </po-combo>
+        </div>
+        <div class="po-row">
+          <po-lookup class="po-lg-3" name="MV_DESGFE1" p-field-label="Despesa Frete p/ Doc Frete Normal" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Normal" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-3" name="MV_DESGFE2" p-field-label="Despesa Frete p/ Doc Frete Compl. Valor" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Compl. Valor" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-4" name="MV_DESGFE3" p-field-label="Despesa Frete p/ Doc Frete Compl. Imposto" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Compl. Imposto" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <div class="po-row">
+          <po-lookup class="po-lg-3" name="MV_DESGFE4" p-field-label="Despesa Frete p/ Doc Frete Reentrega" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Reentrega" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-3" name="MV_DESGFE5" p-field-label="Despesa Frete p/ Doc Frete Devolução" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Devolução" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <div class="po-row">
+          <po-lookup class="po-lg-3" name="MV_DESGFE6" p-field-label="Despesa Frete p/ Doc Frete Redespacho" p-field-value="label" p-label="Despesa Frete p/ Doc Frete Redespacho" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+          <po-lookup class="po-lg-3" name="MV_DESGFE7" p-field-label="Despesa Frete p/ Doc Frete de Serviço" p-field-value="label" p-label="Despesa Frete p/ Doc Frete de Serviço" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="configparamService" [p-advanced-filters]="advancedFilters"> </po-lookup>
+        </div>
+        <br /><br />
+      </po-tab>
+    </po-tabs>
+  </form>
+</po-page-edit>
+

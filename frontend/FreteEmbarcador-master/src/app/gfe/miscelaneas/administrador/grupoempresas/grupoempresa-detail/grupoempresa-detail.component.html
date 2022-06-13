@@ -1,0 +1,11 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-3" p-label="Código" [p-value]="grupoempresa.codigo"> </po-info>
+    <po-info class="po-md-6 po-lg-6" p-label="Descrição" [p-value]="grupoempresa.descricao"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-2" p-label="Tamanho" [p-value]="grupoempresa.tamanho"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Layout" [p-value]="grupoempresa.layout"> </po-info>
+  </div>
+</po-page-detail>

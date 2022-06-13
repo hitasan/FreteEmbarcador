@@ -1,0 +1,10 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+
+    <form [formGroup]="genericaForm">
+      <div class="po-row">
+        <po-input class="po-md-6 po-lg-4" formControlName="tabela" p-label="Tabela"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="chave" p-label="Chave"> </po-input>
+        <po-input class="po-md-6 po-lg-4" formControlName="descricao" p-label="Descricao"> </po-input>
+      </div>
+    </form>
+</po-page-edit>

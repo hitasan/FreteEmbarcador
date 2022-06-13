@@ -1,0 +1,9 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Id" [p-value]="parametro?.id"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Filial" [p-value]="parametro?.filial"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Parâmetro" [p-value]="parametro?.parametro"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Descrição" [p-value]="parametro?.descricao"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Conteudo" [p-value]="parametro?.conteudo"> </po-info>
+  </div>
+</po-page-detail>

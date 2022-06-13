@@ -1,0 +1,57 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+    <form [formGroup]="usuarioForm">
+      <div class="po-row">
+        <div class="po-row">
+          <po-input class="po-lg-2"
+                    p-label="Login"
+                    formControlName ="codigo"
+                    p-auto-focus="true"
+                    [p-clean]="properties.includes('clean')"
+                    p-required="properties?.includes('required')"
+                    (p-blur)="changeEvent('p-blur')"> </po-input>
+
+          <po-input class="po-lg-10"
+                    formControlName="nome"
+                    p-label="Nome Completo"
+                    [p-clean]="properties.includes('clean')"
+                    p-icon="po-icon-user"
+                    [p-no-autocomplete]="properties?.includes('noAutocomplete')"> </po-input>
+        </div>
+
+        <div class="po-row">
+          <po-password class="po-lg-4" formControlName="senha"
+                       p-label="Senha"
+                       [p-clean]="properties.includes('clean')"
+                       [p-hide-password-peek]="properties.includes('hidepasswordpeek')"
+                       [p-minlength]="minlength"
+                       [p-no-autocomplete]="properties?.includes('noAutocomplete')"
+                       p-error-pattern="Senha inválida"
+                       [p-placeholder]="placeholder"
+                       p-required="properties?.includes('required')"
+                       [p-disabled]="pdisable"> </po-password>
+
+          <po-password class="po-lg-4" formControlName="confirmsenha"
+                       p-label="Confirmar Senha"
+                       [p-clean]="properties.includes('clean')"
+                       [p-hide-password-peek]="properties.includes('hidepasswordpeek')"
+                       [p-minlength]="minlength"
+                       [p-no-autocomplete]="properties?.includes('noAutocomplete')"
+                       p-error-pattern="Senha inválida"
+                       [p-placeholder]="placeholder"
+                       p-required="properties?.includes('required')"
+                       [p-disabled]="pdisable"> </po-password>
+        </div>
+
+        <div class="po-row">
+          <po-email class="po-lg-4" formControlName="email" p-label="E-mail" p-clean> </po-email>
+          <po-input class="po-lg-4" formControlName="cargo" p-label="Cargo" p-optional="true"> </po-input>
+        </div>
+
+        <div class="po-row">
+          <po-select class="po-lg-2" formControlName="status" p-clean p-label="Status" [p-options]="statusOptions" [p-required]="properties.includes('required')"> </po-select>
+          <po-datepicker class="po-lg-2" formControlName="startDate" p-clean p-format="dd/mm/yyyy" p-label="Data status" p-disabled [p-required]="false"> </po-datepicker>
+          <po-checkbox-group class="po-lg-4" formControlName="trocasenha" p-columns="2" p-label="Proximo login" [p-options]="propertiesOptions" [p-required]="false"> </po-checkbox-group>
+        </div>
+      </div>
+    </form>
+</po-page-edit>

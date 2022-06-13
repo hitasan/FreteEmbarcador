@@ -1,0 +1,11 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="empresaForm">
+    <div class="po-row">
+      <po-input class="po-md-6 po-lg-4" formControlName="codigo" p-label="Código"> </po-input>
+    </div>
+
+    <div class="po-row">
+      <po-input class="po-md-6 po-lg-4" formControlName="descricao" p-label="Descrição"> </po-input>
+    </div>
+  </form>
+</po-page-edit>

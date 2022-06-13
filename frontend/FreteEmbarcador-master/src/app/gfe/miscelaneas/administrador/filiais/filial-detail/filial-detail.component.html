@@ -1,0 +1,17 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-2" p-label="Código" [p-value]="filial.codigo"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Descrição" [p-value]="filial.descricao"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Nome Comercial" [p-value]="filial.nomecomercial"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Razão Social" [p-value]="filial.razaosocial"> </po-info>
+    <po-info class="po-md-6 po-lg-2" p-label="Telefone" [p-value]="filial?.telefone"> </po-info>
+    <po-info class="po-md-6 po-lg-2" p-label="Fax" [p-value]="filial?.fax"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="CPF/CNPJ" [p-value]="filial?.idfed"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Inscr.Municipal" [p-value]="filial?.inscrmunicipal"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Inscr.Estadual" [p-value]="filial?.inscrestadual"> </po-info>
+  </div>
+</po-page-detail>

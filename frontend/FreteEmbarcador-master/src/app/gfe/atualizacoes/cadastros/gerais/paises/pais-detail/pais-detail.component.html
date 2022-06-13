@@ -1,0 +1,30 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Cod. do País" [p-value]="pais?.codigo"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Descrição" [p-value]="pais?.nome"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Sigla" [p-value]="pais?.sigla"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Idioma" [p-value]="pais?.idioma"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Descr. Idioma" [p-value]="pais?.descIdioma"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Dinalad" [p-value]="pais?.dinalad"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="Naladi" [p-value]="pais?.naladi"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="C.O Aladi" [p-value]="pais?.certOrigemAladi"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="C.O Comum" [p-value]="pais?.certOrigemComum"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="C.O Mercosul" [p-value]="pais?.certOrigemMercosul"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="C.O SGPC" [p-value]="pais?.certOrigemSGPC"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Exige L.I." [p-value]="pais?.exigeLincImport"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-md-6 po-lg-4" p-label="País Inglês" [p-value]="pais?.paisIngles"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Nacionalidade" [p-value]="pais?.nacionalidad"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Código ERP" [p-value]="pais?.codERP"> </po-info>
+    <po-info class="po-md-6 po-lg-4" p-label="Cód. País D.U.E." [p-value]="pais?.codPaisDUE"> </po-info>
+  </div>
+
+</po-page-detail>
