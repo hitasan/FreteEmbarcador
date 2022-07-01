@@ -14,7 +14,7 @@ import { CidadesService } from '../cidades.service';
 export class CidadeDetailComponent implements OnInit {
 
   cidade: Cidade;
-  title = 'Detalhando';
+  title = 'Visualização';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,7 +30,7 @@ export class CidadeDetailComponent implements OnInit {
     this.cidadeService.get(id).subscribe((cidade: Cidade) => {
       this.cidade = cidade;
 
-      this.title = cidade.name;
+      this.title = "TESTANDO CIDADE DETAIL";
     });
   }
 
@@ -41,7 +41,7 @@ export class CidadeDetailComponent implements OnInit {
   remove() {
     this.dialog.confirm({
       message: 'Tem certeza remover esta cidade?',
-      title: 'Remoção',
+      title: 'Exclusão',
       confirm: this.confirmRemove.bind(this)
     });
   }

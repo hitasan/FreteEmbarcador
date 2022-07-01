@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: '', component: MainComponent,
     children: [
       { path: 'home', loadChildren: () => import('../home/home.module').then(m => m.HomeModule) },
+      // Atualizações - Cadastros - Gerais
       { path: 'paises', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/paises/paises.module').then(m => m.PaisesModule) },
       { path: 'cidades', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/cidades/cidades.module').then(m => m.CidadesModule) },
       //{ path: 'grupoEmitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/grupoEmitentes/gruposEmitentes.module').then(m => m.GrupoEmitentesModule) },

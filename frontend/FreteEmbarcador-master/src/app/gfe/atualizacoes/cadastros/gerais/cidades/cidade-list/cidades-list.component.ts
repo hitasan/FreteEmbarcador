@@ -18,19 +18,29 @@ export class CidadesListComponent implements OnInit {
   isTableLoading = false;
 
   readonly actions: Array<PoPageAction> = [
-    { label: 'Adicionar', url: 'app/cidades/new', icon: 'po-icon-plus' }
+    { label: 'Adicionar', separator: true, type: 'default', url: 'app/cidades/new', icon: 'po-icon-plus' },
+    { label: 'Visualizar', separator: true, type: 'default', url: 'app/cidades/detail/${cidade.id}', icon: 'po-icon-eye' },
+    { label: 'Editar', separator: true, type: 'default', url: 'app/cidades/edit/${cidade.id}', icon: 'po-icon-edit' },
+    { label: 'Excluir', separator: true, type: 'default', url: 'app/cidades/detail/${cidade.id}', icon: 'po-icon-delete' },
+    { label: 'Importar', separator: true, type: 'danger', url: 'app/cidades/import', icon: 'po-icon-upload' }
   ];
 
   readonly tableActions: Array<PoTableAction> = [
-    { label: 'Editar', action: cidade => this.router.navigate([`app/cidades/edit/${cidade.id}`])},
-    { label: 'Visualizar', action: cidade => this.router.navigate([`app/cidades/detail/${cidade.id}`]) },
+    { label: 'Editar', separator: true, action: cidade => this.router.navigate([`app/cidades/edit/${cidade.id}`])},
+    { label: 'Visualizar', separator: true, action: cidade => this.router.navigate([`app/cidades/detail/${cidade.id}`]) },
     { label: 'Remover', separator: true, type: 'danger', icon: 'po-icon-delete', action: this.onRemove.bind(this) }
   ];
 
   readonly columns: Array<PoTableColumn> = [
-    { label: 'Nome', property: 'name' },
-    { label: 'Email', property: 'email' },
-    { label: 'CPF', property: 'cpf' }
+    { label: 'Filial', property: 'filial' },
+    { label: 'Código', property: 'cidade', width: '5%' },
+    { label: 'Nome', property: 'nome' },
+    { label: 'Estado', property: 'estado', width: '15%' },
+    { label: 'País', property: 'pais', width: '5%' },
+    { label: 'Sigla', property: 'sigla', width: '7%' },
+    { label: 'CEP Inicial', property: 'cepInicial', width: '8%' },
+    { label: 'CEP Final', property: 'cepFinal', width: '8%' },
+    { label: 'Situação', property: 'situacao', width: '7%' }
   ];
 
   constructor(

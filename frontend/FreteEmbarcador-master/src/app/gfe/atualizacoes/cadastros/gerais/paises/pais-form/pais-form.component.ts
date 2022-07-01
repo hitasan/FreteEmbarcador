@@ -2,7 +2,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { PoFieldModule, PoNotificationService, PoLookupColumn, PoDynamicFormField } from '@po-ui/ng-components';
+import { PoNotificationService, PoLookupColumn, PoDynamicFormField } from '@po-ui/ng-components';
 
 import { PaisesService } from '../paises.service';
 import { Pais } from '../pais.interface';
@@ -10,7 +10,6 @@ import { Pais } from '../pais.interface';
 @Component({
   selector: 'app-pais-form',
   templateUrl: './pais-form.component.html',
-  providers: [PaisesService],
   styleUrls: ['./pais-form.component.css']
 })
 export class PaisFormComponent implements OnInit {

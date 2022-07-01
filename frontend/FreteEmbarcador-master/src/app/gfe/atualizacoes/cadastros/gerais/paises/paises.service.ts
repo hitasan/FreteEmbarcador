@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, throwError as observableThrowError } from 'rxjs';
+
+import { PoLookupFilteredItemsParams } from '@po-ui/ng-components';
 
 import { Pais } from './pais.interface';
-
-import { PoLookupFilter, PoLookupFilteredItemsParams } from '@po-ui/ng-components';
 
 @Injectable()
 export class PaisesService {

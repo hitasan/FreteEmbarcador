@@ -1,26 +1,39 @@
 <po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
 
-    <form [formGroup]="cidadeForm">
-      <div class="po-row">
-        <po-input class="po-md-6 po-lg-4" formControlName="name" p-label="Nome"> </po-input>
+  <form [formGroup]="cidadeForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="cidade" p-label="Código"> </po-input>
+      <po-lookup class="po-lg-2" formControlName="estado" p-field-label="label" p-field-value="label" p-label="Estado" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Estados' }"> </po-lookup>
+      <po-input class="po-lg-6" formControlName="nome" p-label="Nome"> </po-input>
+    </div>
 
-        <po-email class="po-md-6 po-lg-4" formControlName="email" p-label="Email"> </po-email>
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="pais" p-field-label="label" p-field-value="label" p-label="País" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Paises' }"> </po-lookup>
+      <po-input class="po-lg-6" formControlName="nomePais" p-label="Nome País" p-disabled="true"> </po-input>
+      <po-input class="po-lg-2" formControlName="sigla" p-label="Sigla"> </po-input>
+      <po-combo class="po-lg-2" formControlName="suframa" p-label="Suframa" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+    </div>
 
-        <po-datepicker class="po-md-6 po-lg-4" formControlName="birthday" p-label="Date de nascimento"> </po-datepicker>
-      </div>
-
-      <div class="po-row">
-        <po-input class="po-md-6" name="cpf" p-mask="999.999.999-99" formControlName="cpf" p-label="CPF"> </po-input>
-
-        <po-radio-group class="po-md-6" formControlName="genre" p-label="Genêro" [p-options]="genreOptions"> </po-radio-group>
-      </div>
-
-      <po-divider p-label="Endereço"></po-divider>
-
-      <div class="po-row">
-        <po-input class="po-md-6" formControlName="zipcode" p-label="CEP"> </po-input>
-
-        <po-number class="po-md-6" formControlName="address_number" p-label="Número"> </po-number>
-      </div>
-    </form>
+    <div class="po-row">
+      <po-input class="po-md-2" formControlName="cepInicial" p-mask="99999-999" p-label="CEP Inicial"> </po-input>
+      <po-input class="po-md-2" formControlName="cepFinal" p-mask="99999-999" p-label="CEP Final"> </po-input>
+      <po-input class="po-md-3" formControlName="percISSFrete" p-mask="999,99999" p-label="% ISS Frete"> </po-input>
+      <po-combo class="po-lg-2" formControlName="situacao" p-label="Situação" [p-options]="[{ value: '1 - Ativo' },{ value: '2 - Inativo' }]"> </po-combo>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-divider class="po-md-12" p-label="% ISS por Tipo de Ocorrência"></po-divider>
+      <br />
+      <po-table p-container="shadow"
+                p-checkbox
+                p-height="250"
+                [p-loading]="isTableLoading"
+                [p-columns]="columnsTbl"
+                [p-selectable]="true"
+                [p-single-select]="true"
+                [p-sort]="true"
+                [p-striped]="true"
+                [p-items]="percISSTpOcorr"> </po-table>
+    </div>
+  </form>
 </po-page-edit>

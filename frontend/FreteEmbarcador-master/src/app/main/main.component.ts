@@ -24,14 +24,12 @@ export class MainComponent {
     { label: 'Atualizações', icon: 'po-icon-stock', shortLabel: 'Atualizações',
       subItems: [ { label: 'Cadastros',
                     subItems: [ { label: 'Gerais',
-                                  subItems: [
-                                              { label: 'Países'              , link: 'paises' },
+                                  subItems: [ { label: 'Países'              , link: 'paises' },
                                               { label: 'Cidades'             , link: 'cidades' },
                                               { label: 'Grupos Emitentes'    , link: 'grupoEmitentes' },
                                               { label: 'Emitentes'           , link: 'emitentes' },
                                               { label: 'Contato de Emitentes', link: 'contatoEmitentes' },
-                                              { label: 'Unid Medidas'        , link: 'unidMedidas' }
-                                            ]
+                                              { label: 'Unid Medidas'        , link: 'unidMedidas' } ]
                                 },
                                 { label: 'Expedição/Recebimento',
                                   subItems: [ { label: 'Tipos Docto Carga',       link: '/tipoDoctoCarga',    action: this.printMenuCadAction.bind(this) },

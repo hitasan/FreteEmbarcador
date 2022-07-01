@@ -1,10 +1,15 @@
 export interface Cidade {
   id?: number;
-  name: string;
-  email: string;
-  birthday?: string;
-  cpf: string;
-  genre?: string;
-  zipcode?: string;
-  address_number?: number;
+  filial: string;
+  cidade: string;
+  nome: string;
+  estado: string;
+  pais?: string;
+  sigla: string;
+  suframa?: string;
+  cepInicial?: string;
+  cepFinal?: string;
+  percISSFrete?: number;
+  situacao: string;
+  regiaoRelat?: string;
 }

@@ -2,7 +2,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { PoNotificationService } from '@po-ui/ng-components';
+import { PoNotificationService, PoLookupColumn, PoDynamicFormField, PoTableColumn } from '@po-ui/ng-components';
 
 import { CidadesService } from '../cidades.service';
 import { Cidade } from '../cidade.interface';
@@ -14,16 +14,18 @@ import { Cidade } from '../cidade.interface';
 })
 export class CidadeFormComponent implements OnInit {
 
-  title = 'Nova cidade';
-
+  title = 'Cidade - INCLUIR';
   cidadeForm: FormGroup;
+
+  percISSTpOcorr: Array<any>;
+  isTableLoading = false;
 
   private id;
 
-  readonly genreOptions = [
-    { value: 'male', label: 'Masculino' },
-    { value: 'female', label: 'Feminino' },
-    { value: 'another', label: 'Outro' },
+  readonly columnsTbl: Array<PoTableColumn> = [
+    { label: 'Tp Ocorrência', property: 'tpOcor', width: '10%' },
+    { label: 'Dsc Tp Oco', property: 'descrTpOco' },
+    { label: '% ISS', property: 'percISS', type: 'number', width: '20%' }
   ];
 
   constructor(
@@ -37,15 +39,19 @@ export class CidadeFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.cidadeForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      birthday: [''],
-      genre: [''],
-      cpf: ['', Validators.required],
-      zipcode: ['', Validators.required],
-      address_number: []
-    });
+    //this.isTableLoading = true;
+    this.cidadeForm = this.fb.group({ cidade: ['', Validators.required],
+                                      nome: ['', Validators.required],
+                                      estado: ['', Validators.required],
+                                      pais: ['', Validators.required],
+                                      sigla: ['', Validators.required],
+                                      suframa: [''],
+                                      cepInicial: [''],
+                                      cepFinal: [''],
+                                      percISSFrete: [0],
+                                      situacao: [''],
+                                      regiaoRelat: ['']
+                                    });
 
     this.loadData(this.id);
   }
@@ -55,7 +61,7 @@ export class CidadeFormComponent implements OnInit {
       this.cidadeService.get(id).subscribe((cidade: Cidade) => {
         this.cidadeForm.patchValue(cidade);
 
-        this.title = cidade.name;
+        this.title = "TESTANDO CADASTRO CIDADES";
       });
     }
   }
@@ -73,9 +79,7 @@ export class CidadeFormComponent implements OnInit {
 
     const cidade = this.cidadeForm.value;
 
-    const operation = !!this.id
-      ? this.cidadeService.update(this.id, cidade)
-      : this.cidadeService.save(cidade);
+    const operation = !!this.id ? this.cidadeService.update(this.id, cidade) : this.cidadeService.save(cidade);
 
     const successMessage = !!this.id ? 'Cidade atualizada com sucesso' : 'Cidade salva com sucesso';
 
@@ -95,5 +99,21 @@ export class CidadeFormComponent implements OnInit {
         }
       }
     }
+  }
+
+
+  // ======================================================================================================================
+  public readonly columns: Array<PoLookupColumn> = [
+    { property: 'nickname', label: 'Código' },
+    { property: 'name', label: 'Descrição' }
+  ];
+
+  advancedFilters: Array<PoDynamicFormField> = [
+    { property: 'nickname', divider: 'Selection Informations', optional: true, gridColumns: 6, label: 'Código' },
+    { property: 'name', optional: true, gridColumns: 6 }
+  ];
+
+  fieldFormat(value) {
+    return `${value.label}`;  // `${value.nickname} - ${value.label}`;
   }
 }

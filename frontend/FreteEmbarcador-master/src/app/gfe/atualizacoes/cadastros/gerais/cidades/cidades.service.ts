@@ -8,8 +8,8 @@ import { Cidade } from './cidade.interface';
 @Injectable()
 export class CidadesService {
 
-  private url = 'http://localhost:3000/customers';
-  //private url = 'http://localhost:3000/cidades';
+  //private url = 'http://localhost:3000/customers';
+  private url = 'http://localhost:3000/cidades';
 
   readonly headers = new HttpHeaders({
     'X-PO-SCREEN-LOCK': 'true'
