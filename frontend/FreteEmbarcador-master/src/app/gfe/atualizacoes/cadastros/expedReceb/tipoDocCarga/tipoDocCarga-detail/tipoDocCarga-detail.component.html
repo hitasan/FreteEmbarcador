@@ -1,0 +1,19 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+
+  <div class="po-row">
+    <po-info class="po-lg-1" p-label="Tipo Docto" [p-value]="tipoDocCarga.tipo"> </po-info>
+    <po-info class="po-lg-5" p-label="Descrição" [p-value]="tipoDocCarga.descricao"> </po-info>
+    <po-info class="po-lg-2" p-label="Tipo Transp" [p-value]="tipoDocCarga.tpTransp"> </po-info>
+    <po-info class="po-lg-2" p-label="Sentido" [p-value]="tipoDocCarga.sentido"> </po-info>
+    <po-info class="po-lg-2" p-label="Tipo Contab" [p-value]="tipoDocCarga.tpContab"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Env EDI/NFE?" [p-value]="tipoDocCarga.enviaEdiNfe"> </po-info>
+    <po-info class="po-lg-2" p-label="Situação" [p-value]="tipoDocCarga.situacao"> </po-info>
+    <po-info class="po-lg-2" p-label="Calculo Frete" [p-value]="tipoDocCarga.calculoFret"> </po-info>
+    <po-info class="po-lg-2" p-label="Emite Pre-Fat?" [p-value]="tipoDocCarga.emitePreFat"> </po-info>
+    <po-info class="po-lg-4" p-label="Data Entrega Auto" [p-value]="tipoDocCarga.dataEntAut"> </po-info>
+  </div>
+
+</po-page-detail>

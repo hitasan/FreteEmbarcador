@@ -1,7 +1,7 @@
-<po-page-list p-title="Cidades" [p-actions]="actions">
+<po-page-list p-title="Grupo de Emitente" [p-actions]="actions">
 
-  <po-table p-checkbox
-            p-container="shadow"
+  <po-table p-container="shadow"
+            p-checkbox
             [p-loading]="isTableLoading"
             [p-actions]="tableActions"
             [p-actions-right]="true"
@@ -10,6 +10,6 @@
             [p-single-select]="true"
             [p-sort]="true"
             [p-striped]="true"
-            [p-items]="cidades"> </po-table>
+            [p-items]="grupoEmitentes"> </po-table>
 
 </po-page-list>

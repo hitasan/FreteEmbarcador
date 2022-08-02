@@ -6,13 +6,18 @@ const routes: Routes = [
   { path: '', component: MainComponent,
     children: [
       { path: 'home', loadChildren: () => import('../home/home.module').then(m => m.HomeModule) },
-      // Atualizações - Cadastros - Gerais
-      { path: 'paises', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/paises/paises.module').then(m => m.PaisesModule) },
-      { path: 'cidades', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/cidades/cidades.module').then(m => m.CidadesModule) },
-      //{ path: 'grupoEmitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/grupoEmitentes/gruposEmitentes.module').then(m => m.GrupoEmitentesModule) },
-      //{ path: 'emitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/emitentes/emitentes.module').then(m => m.EmitentesModule) },
-      //{ path: 'contatoEmitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/contatoEmitentes/contatoEmitentes.module').then(m => m.ContatoEmitentesModule) },
-      //{ path: 'unidMedidas', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/unidademedidas/unidadeMedidas.module').then(m => m.UnidadeMedidasModule) }
+      // Atualizações
+        // Cadastros
+          // Gerais
+          { path: 'paises', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/paises/paises.module').then(m => m.PaisesModule) },
+          { path: 'cidades', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/cidades/cidades.module').then(m => m.CidadesModule) },
+          { path: 'grupoEmitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/grupoEmitentes/grupoEmitentes.module').then(m => m.GrupoEmitenteModule) },
+          //{ path: 'emitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/emitentes/emitentes.module').then(m => m.EmitenteModule) },
+          { path: 'contatoEmitentes', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/contatoEmitentes/contatoEmitente.module').then(m => m.ContatoEmitenteModule) },
+          { path: 'unidMedidas', loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/unidadeMedida/unidadeMedida.module').then(m => m.UnidadeMedidaModule) },
+
+          // Expedicao/Recebimento
+          { path: 'tipoDocCarga', loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoDocCarga/tipoDocCarga.module').then(m => m.TipoDocCargaModule) },
 
       // Miscelanea - Configuração
       { path: 'configparam', loadChildren: () => import('../gfe/miscelaneas/configuracao/configparam/configparam.module').then(m => m.ConfigParamModule) },

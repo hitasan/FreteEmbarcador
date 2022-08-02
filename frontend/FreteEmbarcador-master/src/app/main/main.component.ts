@@ -32,7 +32,7 @@ export class MainComponent {
                                               { label: 'Unid Medidas'        , link: 'unidMedidas' } ]
                                 },
                                 { label: 'Expedição/Recebimento',
-                                  subItems: [ { label: 'Tipos Docto Carga',       link: '/tipoDoctoCarga',    action: this.printMenuCadAction.bind(this) },
+                                  subItems: [ { label: 'Tipos Docto Carga',       link: 'tipoDocCarga' },
                                               { label: 'Unitizadores',            link: '/unitizadores',      action: this.printMenuCadAction.bind(this) },
                                               { label: 'Itens com Exceções',      link: '/itensExcecao',      action: this.printMenuCadAction.bind(this) },
                                               { label: 'Filtros Docto Carga',     link: '/filtroDoctoCarga',  action: this.printMenuCadAction.bind(this) },

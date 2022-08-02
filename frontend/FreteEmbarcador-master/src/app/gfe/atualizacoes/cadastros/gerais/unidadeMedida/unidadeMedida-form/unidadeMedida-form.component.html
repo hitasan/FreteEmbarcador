@@ -1,0 +1,17 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+
+    <form [formGroup]="uMedidaForm">
+      <div class="po-row">
+        <po-input class="po-lg-2" formControlName="uniMedida" p-label="Un. Medida"> </po-input>
+        <po-input class="po-lg-4" formControlName="descricao" p-label="Descrição"> </po-input>
+        <po-input class="po-lg-6" formControlName="codRiex" p-label="Código RIEX"> </po-input>
+        <po-input class="po-lg-2" formControlName="codUMSRF" p-label="Cód. UM SRF"> </po-input>
+      </div>
+
+      <div class="po-row">
+        <po-input class="po-lg-2" formControlName="codCertFiesp" p-label="Orig Ctf Cd"> </po-input>
+        <po-input class="po-lg-2" formControlName="codUMFCI" p-label="Cód. UM FCI"> </po-input>
+        <po-input class="po-lg-2" formControlName="codERP" p-label="Código ERP"> </po-input>
+      </div>
+    </form>
+</po-page-edit>

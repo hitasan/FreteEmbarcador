@@ -1,0 +1,45 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+
+    <form [formGroup]="contatoEmitenteForm">
+      <po-divider class="po-md-12" p-label="Emitente"></po-divider>
+
+      <div class="po-row">
+        <po-lookup class="po-md-6" p-required="true" name="codEmitente" p-field-label="label" p-field-value="label" p-help="Selecione o Emitente" p-label="Emitente" [p-columns]="columns" [p-field-format]="fieldFormat" [p-filter-service]="contatoEmitenteService" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Emitentes disponíveis para seleção' }"> </po-lookup>
+        <po-input class="po-lg-4" formControlName="nomeEmit" p-label="Nome"> </po-input>
+      </div>
+
+      <br />
+
+      <po-divider class="po-md-12" p-label="Contato"></po-divider>
+      <div class="po-row">
+        <po-input class="po-lg-4" formControlName="sequencia" p-label="Sequência"> </po-input>
+        <po-combo class="po-lg-4" formControlName="situacao" p-label="Situação" [p-options]="[{value: '1 - ativo'}, {value: '2 - Inativo'}]"> </po-combo>
+        <po-input class="po-lg-4" formControlName="nome" p-label="Nome"> </po-input>
+      </div>
+      <div class="po-row">
+        <po-input class="po-lg-4" formControlName="apelido" p-label="Atende por"> </po-input>
+        <po-input class="po-lg-4" formControlName="setor" p-label="Setor"> </po-input>
+        <po-input class="po-lg-4" formControlName="funcao" p-label="Função"> </po-input>
+        <po-input class="po-lg-4" formControlName="email" p-label="E-mail"> </po-input>
+      </div>
+      <div class="po-row">
+        <po-input class="po-lg-2" formControlName="fone1" p-label="Fone 1"> </po-input>
+        <po-input class="po-lg-1" formControlName="ramal1" p-label="Ramal 1"> </po-input>
+        <po-input class="po-lg-2" formControlName="fone2" p-label="Fone 2"> </po-input>
+        <po-input class="po-lg-1" formControlName="ramal2" p-label="Ramal 2"> </po-input>
+        <po-input class="po-lg-2" formControlName="fax" p-label="Fax"> </po-input>
+        <po-input class="po-lg-1" formControlName="ramalFax" p-label="Ramal Fax"> </po-input>
+      </div>
+      <div class="po-row">
+        <po-input class="po-lg-8" formControlName="observacoes" p-label="Observações"> </po-input>
+      </div>
+      <div class="po-row">
+        <po-combo class="po-lg-1" formControlName="recebePreFat" p-label="Rec Pre-Fat" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+        <po-combo class="po-lg-1" formControlName="recebeXmlNFe" p-label="Rec XML NFe" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+        <po-combo class="po-lg-1" formControlName="recebeRef" p-label="Rec Doc Ref" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+        <po-combo class="po-lg-1" formControlName="recebeCotacao" p-label="Rec Cotação" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+        <po-combo class="po-lg-1" formControlName="recebeAgendam" p-label="Rec Agendam" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+        <po-combo class="po-lg-1" formControlName="recebeContrato" p-label="Rec Contrato" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
+      </div>
+    </form>
+</po-page-edit>

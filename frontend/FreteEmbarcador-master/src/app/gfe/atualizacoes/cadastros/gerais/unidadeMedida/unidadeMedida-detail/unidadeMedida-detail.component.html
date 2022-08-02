@@ -1,0 +1,14 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-4" p-label="Un. Medida" [p-value]="uMedida.uniMedida"> </po-info>
+    <po-info class="po-lg-4" p-label="Descrição" [p-value]="uMedida.descricao"> </po-info>
+    <po-info class="po-lg-4" p-label="Código RIEX" [p-value]="uMedida?.codRiex"> </po-info>
+    <po-info class="po-lg-4" p-label="Cód. UM. SRF" [p-value]="uMedida?.codUMSRF"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-lg-4" p-label="Orig. Ctf Cd" [p-value]="uMedida?.codCertFiesp"> </po-info>
+    <po-info class="po-lg-4" p-label="Cod UM FCI" [p-value]="uMedida?.codUMFCI"> </po-info>
+    <po-info class="po-lg-4" p-label="Código ERP" [p-value]="uMedida?.codERP"> </po-info>
+  </div>
+</po-page-detail>

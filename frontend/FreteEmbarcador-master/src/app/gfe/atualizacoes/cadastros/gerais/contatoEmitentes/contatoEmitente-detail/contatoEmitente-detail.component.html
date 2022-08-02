@@ -1,0 +1,43 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <po-divider class="po-md-12" p-label="Emitente"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-4" p-label="Cod. do País" [p-value]="contatoEmitente.codEmitente"> </po-info>
+    <!--<po-info class="po-lg-4" p-label="Descrição" [p-value]="contatoEmitente?.nome"> </po-info>-->
+  </div>
+
+  <br />
+
+  <po-divider class="po-md-12" p-label="Contato"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Sequência" [p-value]="contatoEmitente.sequencia"> </po-info>
+    <po-info class="po-lg-2" p-label="Situação" [p-value]="contatoEmitente.situacao"> </po-info>
+    <po-info class="po-lg-6" p-label="Nome" [p-value]="contatoEmitente.nome"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-lg-4" p-label="Atende por" [p-value]="contatoEmitente?.apelido"> </po-info>
+    <po-info class="po-lg-5" p-label="Setor" [p-value]="contatoEmitente?.setor"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-lg-5" p-label="Função" [p-value]="contatoEmitente?.funcao"> </po-info>
+    <po-info class="po-lg-5" p-label="E-mail" [p-value]="contatoEmitente?.email"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Fone 1" [p-value]="contatoEmitente?.fone1"> </po-info>
+    <po-info class="po-lg-1" p-label="Ramal 1" [p-value]="contatoEmitente?.ramal1"> </po-info>
+    <po-info class="po-lg-2" p-label="Fone 2" [p-value]="contatoEmitente?.fone2"> </po-info>
+    <po-info class="po-lg-1" p-label="Ramal 2" [p-value]="contatoEmitente?.ramal2"> </po-info>
+    <po-info class="po-lg-2" p-label="Fax" [p-value]="contatoEmitente?.fax"> </po-info>
+    <po-info class="po-lg-1" p-label="Ramal Fax" [p-value]="contatoEmitente?.ramalFax"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Fone 1" [p-value]="contatoEmitente?.recebePreFat"> </po-info>
+    <po-info class="po-lg-2" p-label="Ramal 1" [p-value]="contatoEmitente?.recebeXmlNFe"> </po-info>
+    <po-info class="po-lg-2" p-label="Fone 2" [p-value]="contatoEmitente?.recebeRef"> </po-info>
+    <po-info class="po-lg-2" p-label="Ramal 2" [p-value]="contatoEmitente?.recebeCotacao"> </po-info>
+    <po-info class="po-lg-2" p-label="Fax" [p-value]="contatoEmitente?.recebeAgendam"> </po-info>
+    <po-info class="po-lg-2" p-label="Ramal Fax" [p-value]="contatoEmitente?.recebeContrato"> </po-info>
+  </div>
+  <div class="po-row">
+    <po-info class="po-lg-1" p-label="Ramal Fax" [p-value]="contatoEmitente?.observacoes"> </po-info>
+  </div>
+</po-page-detail>

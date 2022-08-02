@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PoPageAction, PoTableAction, PoTableColumn, PoDialogService } from '@po-ui/ng-components';
-import { Observable } from 'rxjs';
 
 import { CidadesService } from '../cidades.service';
 import { Cidade } from '../cidade.interface';

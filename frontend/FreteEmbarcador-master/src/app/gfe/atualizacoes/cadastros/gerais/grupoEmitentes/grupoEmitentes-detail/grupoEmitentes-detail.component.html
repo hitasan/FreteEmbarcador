@@ -1,0 +1,12 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Grupo" [p-value]="grupoEmitentes.grupo"> </po-info>
+    <po-info class="po-lg-6" p-label="Descrição" [p-value]="grupoEmitentes.descricao"> </po-info>
+    <po-info class="po-lg-2" p-label="Situação" [p-value]="grupoEmitentes.situacao"> </po-info>
+  </div>
+
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Finalidade" [p-value]="grupoEmitentes.finalidade"> </po-info>
+    <po-info class="po-lg-2" p-label="Origem" [p-value]="grupoEmitentes.origem"> </po-info>
+  </div>
+</po-page-detail>

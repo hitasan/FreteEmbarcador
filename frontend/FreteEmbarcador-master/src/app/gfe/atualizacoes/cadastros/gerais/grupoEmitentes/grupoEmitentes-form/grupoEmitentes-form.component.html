@@ -1,0 +1,14 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+
+    <form [formGroup]="grupoEmitentesForm">
+      <div class="po-row">
+        <po-input class="po-lg-2" formControlName="grupo" p-label="Grupo" p-required="true"> </po-input>
+        <po-input class="po-lg-6" formControlName="descricao" p-label="Descrição" p-required="true"> </po-input>
+        <po-combo class="po-lg-2" formControlName="situacao" p-label="Situação" [p-options]="[{ value: '1 - Ativo' },{ value: '2 - Inativo'}]" p-required="true" p-readonly="true"> </po-combo>
+      </div>
+      <div class="po-row">
+        <po-combo class="po-lg-2" formControlName="finalidade" p-label="Finalidade" [p-options]="[{ value: '1 - Contábil' },{ value: '2 - Gerencial' }, { Value: '3 - EDI' }]" p-required="true"> </po-combo>
+        <po-combo class="po-lg-2" formControlName="origem" p-label="Origem" [p-options]="[{ value: '1 - Sistema' },{ value: '2 - Usuário' }]" p-required="true" p-readonly="true"> </po-combo>
+      </div>
+    </form>
+</po-page-edit>

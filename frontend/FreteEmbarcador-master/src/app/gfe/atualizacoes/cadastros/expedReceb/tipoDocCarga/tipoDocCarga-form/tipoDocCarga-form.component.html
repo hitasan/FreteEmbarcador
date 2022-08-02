@@ -1,0 +1,23 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+
+  <form [formGroup]="tipoDocCargaForm">
+    <div class="po-row">
+      <po-input class="po-lg-1" formControlName="tipo" p-label="Tipo" p-required> </po-input>
+      <po-input class="po-lg-4" formControlName="descricao" p-label="Descrição" p-required> </po-input>
+      <po-select class="po-lg-2" formControlName="tpTransp" [(ngModel)]="tpTransp" p-label="Tipo Transp." [p-options]="tpTranspOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="sentido" [(ngModel)]="sentido" p-label="Sentido" [p-options]="sentidoOpt" p-required p-clean> </po-select>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-2" formControlName="tpContab" [(ngModel)]="tpContab" p-label="Tipo Contab" [p-options]="tpContabOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="enviaEdiNfe" [(ngModel)]="enviaEdiNfe" p-label="Env EDI/NFE?" [p-options]="enviaEdiNfeOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="calculoFret" [(ngModel)]="calculoFret" p-label="Cálculo Fret" [p-options]="calculoFretOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="emitePreFat" [(ngModel)]="emitePreFat" p-label="Emite Pre-Fat" [p-options]="emitePreFatOpt" p-required p-clean> </po-select>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-3" formControlName="dataEntAut" [(ngModel)]="dataEntAut" p-label="Data Entr Aut" [p-options]="dataEntAutOpt"  p-required p-clean> </po-select>
+    </div>
+  </form>
+</po-page-edit>

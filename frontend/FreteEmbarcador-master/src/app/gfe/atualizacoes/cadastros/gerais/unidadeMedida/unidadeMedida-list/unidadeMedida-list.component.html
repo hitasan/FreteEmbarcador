@@ -1,0 +1,16 @@
+<po-page-list p-title="Unidade de Medida" [p-actions]="actions">
+  <po-table p-checkbox
+            p-container="shadow"
+            p-actions-right="true"
+            p-selectable="true"
+            p-single-select="true"
+            p-sort="true"
+            p-striped="true"
+            [p-loading]="isTableLoading"
+            [p-actions]="tableActions"
+            [p-columns]="columns"
+            [p-items]="uMedida"> </po-table>
+
+</po-page-list>
+
+<po-modal #advancedModal p-title="Importação CSV" [p-primary-action]="advancedPrimaryAction" [p-secondary-action]="advancedSecundaryAction"> </po-modal>
