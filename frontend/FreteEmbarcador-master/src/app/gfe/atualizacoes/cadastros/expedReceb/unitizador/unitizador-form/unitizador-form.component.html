@@ -1,0 +1,17 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="unitizadorForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="unitizador" p-label="Unitizador" p-required> </po-input>
+      <po-input class="po-lg-4" formControlName="descricao" p-label="Descrição" p-required> </po-input>
+      <po-number class="po-lg-2" formControlName="tara" [(ngModel)]="tara" p-label="Tara" p-required p-clean> </po-number>
+      <po-number class="po-lg-2" formControlName="volume" [(ngModel)]="volume" p-label="Volume" p-required p-clean> </po-number>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-number class="po-lg-2" formControlName="volOcupado" [(ngModel)]="volOcupado" p-label="Vol.Ocupado" p-required p-clean> </po-number>
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt" p-required p-clean p-disabled> </po-select>
+      <po-select class="po-lg-2" formControlName="identUnitiz" [(ngModel)]="identUnitiz" p-label="Ident. Unitiz." [p-options]="identUnitizOpt" p-required p-clean> </po-select>
+      <po-select class="po-lg-2" formControlName="finalidade" [(ngModel)]="finalidade" p-label="Finalidade" [p-options]="finalidadeOpt" p-required p-clean> </po-select>
+    </div>
+  </form>
+</po-page-edit>

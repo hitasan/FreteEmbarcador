@@ -1,0 +1,10 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="itemExcecaoForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="item" [(ngModel)]="item" p-label="Item" p-required> </po-input>
+      <po-input class="po-lg-4" formControlName="descricao" [(ngModel)]="descricao" p-label="Descrição" p-required> </po-input>
+      <po-lookup class="po-lg-3" formControlName="classFrete" [(ngModel)]="classFrete" p-label="Class. Frete" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'ClassFrete' }"> </po-lookup>
+      <po-lookup class="po-lg-3" formControlName="tipoItem" [(ngModel)]="tipoItem" p-label="Tipo Item" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'TipoItem' }"> </po-lookup>
+    </div>
+  </form>
+</po-page-edit>

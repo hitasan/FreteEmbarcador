@@ -1,0 +1,17 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+
+  <div class="po-row">
+    <po-info class="po-lg-1" p-label="Unitizador" [p-value]="unitizador.unitizador"> </po-info>
+    <po-info class="po-lg-5" p-label="Descrição" [p-value]="unitizador.descricao"> </po-info>
+    <po-info class="po-lg-2" p-label="Tara" [p-value]="unitizador.tara"> </po-info>
+    <po-info class="po-lg-2" p-label="Volume" [p-value]="unitizador.volume"> </po-info>
+    <po-info class="po-lg-2" p-label="Vol.Ocupado" [p-value]="unitizador.volOcupado"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Situação" [p-value]="unitizador.situacao"> </po-info>
+    <po-info class="po-lg-2" p-label="Ident. Unitiz." [p-value]="unitizador.identUnitiz"> </po-info>
+    <po-info class="po-lg-2" p-label="Finalidade" [p-value]="unitizador.finalidade"> </po-info>
+  </div>
+
+</po-page-detail>
