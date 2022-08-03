@@ -1,0 +1,10 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+
+  <div class="po-row">
+    <po-info class="po-lg-2" p-label="Tabela" [p-value]="filtroDocCarga.tabela"> </po-info>
+    <po-info class="po-lg-2" p-label="Campo" [p-value]="filtroDocCarga.campo"> </po-info>
+    <po-info class="po-lg-6" p-label="Valor" [p-value]="filtroDocCarga.valor"> </po-info>
+    <po-info class="po-lg-2" p-label="Ação" [p-value]="filtroDocCarga.acao"> </po-info>
+  </div>
+
+</po-page-detail>

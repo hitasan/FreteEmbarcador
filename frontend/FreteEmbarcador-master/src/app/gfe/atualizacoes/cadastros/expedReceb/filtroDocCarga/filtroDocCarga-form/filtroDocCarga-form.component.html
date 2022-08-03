@@ -1,0 +1,10 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="filtroDocCargaForm">
+    <div class="po-row">
+      <po-select class="po-lg-3" formControlName="tabela" [(ngModel)]="tabela" p-label="Tabela" [p-options]="tabelaOpt" p-required p-clean> </po-select>
+      <po-lookup class="po-lg-2" formControlName="campo" [(ngModel)]="campo" p-label="Campo" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Campo' }"> </po-lookup>
+      <po-input class="po-lg-5" formControlName="valor" [(ngModel)]="valor" p-label="Valor" p-required p-clean> </po-input>
+      <po-select class="po-lg-2" formControlName="acao" [(ngModel)]="acao" p-label="Ação" [p-options]="acaoOpt" p-required p-clean> </po-select>
+    </div>
+  </form>
+</po-page-edit>
