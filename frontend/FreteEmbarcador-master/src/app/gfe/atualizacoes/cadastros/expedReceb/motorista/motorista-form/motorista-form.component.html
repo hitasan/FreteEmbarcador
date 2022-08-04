@@ -1,0 +1,56 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="motoristaForm">
+    <po-tabs>
+      <po-tab p-label="Cadastrais" p-active>
+        <div class="po-row">
+          <po-input class="po-lg-2" formControlName="codMotAjud" [(ngModel)]="codMotAjud" p-label="Cod. Mot/Ajud" p-required p-clean> </po-input>
+          <po-input class="po-lg-6" formControlName="nome" [(ngModel)]="nome" p-label="Nome" p-required p-clean> </po-input>
+          <po-input class="po-lg-4" formControlName="apelido" [(ngModel)]="apelido" p-label="Pseud/Apelido" p-clean> </po-input>
+        </div>
+        <br />
+        <div class="po-row">
+          <po-select class="po-lg-2" formControlName="tipo" [(ngModel)]="tipo" p-label="Tipo" [p-options]="tipoOpt" p-required> </po-select>
+          <po-input class="po-lg-2" formControlName="cpf" [(ngModel)]="cpf" p-label="CPF" p-required p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="rg" [(ngModel)]="rg" p-label="RG" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="expedidor" [(ngModel)]="expedidor" p-label="Orgão Exp." p-clean> </po-input>
+          <po-select class="po-lg-2" formControlName="sitMotAjud" [(ngModel)]="sitMotAjud" p-label="Situação" [p-options]="situacaoOpt" p-required> </po-select>
+          <po-datepicker class="po-lg-2" formControlName="dtSituacao" [(ngModel)]="dtSituacao" p-label="Data Situação"> </po-datepicker>
+        </div>
+        <br />
+        <div class="po-row">
+          <po-lookup class="po-lg-3" formControlName="transportador" [(ngModel)]="transportador" p-label="Transportador" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'Transportador'}" p-clean> </po-lookup>
+          <po-input class="po-lg-6" formControlName="nomeTrp" [(ngModel)]="nomeTrp" p-label="Nome Transp." p-disabled> </po-input>
+        </div>
+        <br />
+        <div class="po-row">
+          <po-input class="po-lg-4" formControlName="motSituacao" [(ngModel)]="motSituacao" p-label="Motivo Situação" p-clean> </po-input>
+        </div>
+        <br />
+        <div class="po-row">
+          <po-textarea class="po-lg-8" formControlName="observacoes" [ngModel]="observacoes" p-label="Observações" p-rows="6"> </po-textarea>
+        </div>
+      </po-tab>
+
+      <po-tab p-label="Documentos" p-active>
+        <po-divider class="po-md-12" p-label="Habilitação"></po-divider>
+        <div class="po-row">
+          <po-input class="po-lg-2" formControlName="nrCnh" [(ngModel)]="nrCnh" p-label="Nr. CNH" p-clean> </po-input>
+          <po-input class="po-lg-2" formControlName="regCnh" [(ngModel)]="regCnh" p-label="Reg. CNH" p-clean> </po-input>
+          <po-datepicker class="po-lg-2" formControlName="dtExpedCnh" [(ngModel)]="dtExpedCnh" p-label="Dt Exped CNH"> </po-datepicker>
+          <po-datepicker class="po-lg-2" formControlName="dtVenctCnh" [(ngModel)]="dtVenctCnh" p-label="Dt Venct CNH"> </po-datepicker>
+          <po-input class="po-lg-2" formControlName="municipioCnh" [(ngModel)]="municipioCnh" p-label="Municipio CNH" p-clean> </po-input>
+        </div>
+        <br />
+        <div class="po-row">
+          <po-input class="po-lg-1" formControlName="estadoCnh" [(ngModel)]="estadoCnh" p-label="Estado CNH" p-clean> </po-input>
+          <po-input class="po-lg-1" formControlName="catCnh" [(ngModel)]="catCnh" p-label="Categ. CNH" p-clean> </po-input>
+        </div>
+
+        <po-divider class="po-md-12" p-label="Produtos Perigosos"></po-divider>
+        <div class="po-row">
+          <po-select class="po-lg-2" formControlName="mopp" [(ngModel)]="mopp" p-label="MOPP" [p-options]="moppOpt" p-required> </po-select>
+        </div>
+      </po-tab>
+    </po-tabs>
+  </form>
+</po-page-edit>

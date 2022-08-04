@@ -1,0 +1,51 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <po-tabs>
+    <po-tab p-label="Cadastrais" p-active>
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="Cod Mot/Ajud" [p-value]="motorista.codMotAjud"> </po-info>
+        <po-info class="po-lg-4" p-label="Nome" [p-value]="motorista.nome"> </po-info>
+        <po-info class="po-lg-2" p-label="Pseud/Apelido" [p-value]="motorista.apelido"> </po-info>
+        <po-info class="po-lg-2" p-label="Tipo" [p-value]="motorista.tipo"> </po-info>
+      </div>
+      <br />
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="CPF" [p-value]="motorista.cpf"> </po-info>
+        <po-info class="po-lg-2" p-label="Rg" [p-value]="motorista.rg"> </po-info>
+        <po-info class="po-lg-1" p-label="Orgão Exp." [p-value]="motorista.expedidor"> </po-info>
+        <po-info class="po-lg-2" p-label="Transportador" [p-value]="motorista.transportador"> </po-info>
+        <po-info class="po-lg-4" p-label="Nome Transp" [p-value]="nomeTrp"> </po-info>
+      </div>
+      <br />
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="Situação" [p-value]="motorista.sitMotAjud"> </po-info>
+        <po-info class="po-lg-2" p-label="Data Situação" [p-value]="motorista.dtSituacao"> </po-info>
+        <po-info class="po-lg-4" p-label="Motivo Situação" [p-value]="motorista.motSituacao"> </po-info>
+      </div>
+      <br />
+      <div class="po-row">
+        <po-info class="po-lg-8" p-label="Observações" [p-value]="motorista.observacoes"> </po-info>
+      </div>
+    </po-tab>
+
+    <po-tab p-label="Documentos" p-active>
+      <po-divider class="po-lg-12" p-label="Habilitação"></po-divider>
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="Nr. CNH" [p-value]="motorista.nrCnh"> </po-info>
+        <po-info class="po-lg-2" p-label="Reg. CNH" [p-value]="motorista.regCnh"> </po-info>
+        <po-info class="po-lg-2" p-label="Dt Exped CNH" [p-value]="motorista.dtExpedCnh"> </po-info>
+        <po-info class="po-lg-2" p-label="Dt Venct CNH" [p-value]="motorista.dtVenctCnh"> </po-info>
+        <po-info class="po-lg-2" p-label="Municipio CNH" [p-value]="motorista.municipioCnh"> </po-info>
+      </div>
+      <br />
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="Estado CNH" [p-value]="motorista.estadoCnh"> </po-info>
+        <po-info class="po-lg-1" p-label="Categ. CNH" [p-value]="motorista.catCnh"> </po-info>
+      </div>
+
+      <po-divider class="po-lg-12" p-label="Produtos Perigosos"></po-divider>
+      <div class="po-row">
+        <po-info class="po-lg-2" p-label="MOPP" [p-value]="motorista.mopp"> </po-info>
+      </div>
+    </po-tab>
+  </po-tabs>
+</po-page-detail>

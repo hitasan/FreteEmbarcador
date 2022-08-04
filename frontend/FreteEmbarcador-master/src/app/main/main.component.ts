@@ -32,16 +32,17 @@ export class MainComponent {
                                               { label: 'Unid Medidas'        , link: 'unidMedidas' } ]
                                 },
                                 { label: 'Expedição/Recebimento',
-                                  subItems: [ { label: 'Tipos Docto Carga',       link: 'tipoDocCarga' },
-                                              { label: 'Unitizadores',            link: '/unitizadores',      action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Itens com Exceções',      link: '/itensExcecao',      action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Filtros Docto Carga',     link: '/filtroDoctoCarga',  action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Motoristas',              link: '/motoristas',        action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Tipos de Operação',       link: '/tipoOperacao',      action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Prazos de Entrega',       link: '/prazoEntrega',      action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Praças de Pedágio',       link: '/pracaPedagio',      action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Distância entre Cidades', link: '/distanciaCidades',  action: this.printMenuCadAction.bind(this) } ]
-                                },
+                                  subItems: [ { label: 'Tipos Docto Carga',   link: 'tipoDocCarga' },
+                                              { label: 'Unitizadores',        link: 'unitizador' },
+                                              { label: 'Itens com Exceções',  link: 'itemExcecao' },
+                                              { label: 'Filtros Docto Carga', link: 'filtroDocCarga' },
+                                              { label: 'Motoristas',          link: 'motorista' },
+                                              { label: 'Veículos',            link: 'veiculo' },
+                                              //{ label: 'Tipos de Operação',       link: '/tipoOperacao',      action: this.printMenuCadAction.bind(this) },
+                                              //{ label: 'Prazos de Entrega',       link: '/prazoEntrega',      action: this.printMenuCadAction.bind(this) },
+                                              //{ label: 'Praças de Pedágio',       link: '/pracaPedagio',      action: this.printMenuCadAction.bind(this) },
+                                              { label: 'ZZZ Distância entre Cidades', link: '/distanciaCidades',  action: this.printMenuCadAction.bind(this) } ]
+                                }/*,
                                 { label: 'Pátios e Portarias',
                                   subItems: [ { label: 'Visitantes',         link: '/visitantes',       action: this.printMenuCadAction.bind(this) },
                                               { label: 'Restrições',         link: '/restricoes',       action: this.printMenuCadAction.bind(this) },
@@ -83,7 +84,7 @@ export class MainComponent {
                                               { label: 'Centros de Custo',    link: '/centroCusto',     action: this.printMenuCadAction.bind(this) },
                                               { label: 'Contas por Filial',   link: '/contaFilial',     action: this.printMenuCadAction.bind(this) },
                                               { label: 'Contas para Rateio',  link: '/contaRateio',     action: this.printMenuCadAction.bind(this) } ]
-                                } ]
+                                }*/ ]
                   },
                   { label: 'Movimentações',
                     subItems: [ { label: 'Expedição/Recebimento',

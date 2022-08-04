@@ -119,6 +119,6 @@ export class ConfigParamFormComponent implements OnInit {
   ];
 
   fieldFormat(value) {
-    return `${value.label}`;  // `${value.nickname} - ${value.label}`;
+    return `${value.label}`;
   }
 }
