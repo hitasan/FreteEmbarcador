@@ -1,0 +1,53 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="veiculoForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="codigo" [(ngModel)]="codigo" p-label="Cod. Veículo" p-required p-clean> </po-input>
+      <po-lookup class="po-lg-2" formControlName="tipo" [(ngModel)]="tipo" p-label="Tipo" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'TipoVeiculo'}" p-clean> </po-lookup>
+      <po-input class="po-lg-2" formControlName="placa" [(ngModel)]="placa" p-label="Placa" p-required p-clean> </po-input>
+      <po-input class="po-lg-1" formControlName="ufPlaca" [(ngModel)]="ufPlaca" p-label="UF Placa" p-clean> </po-input>
+      <po-input class="po-lg-3" formControlName="marcaModelo" [(ngModel)]="marcaModelo" p-label="Marca/Modelo" p-clean> </po-input>
+      <po-input class="po-lg-1" formControlName="anoFabric" [(ngModel)]="anoFabric" p-label="Ano Fabr."> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="renavam" [(ngModel)]="renavam" p-label="Renavam" p-clean> </po-input>
+      <po-decimal class="po-lg-2" formControlName="hodometro" [(ngModel)]="hodometro" p-label="Vl Hodômetro" p-decimals-length="2" p-thousand-maxlength="6" p-icon="po-icon-calculator"> </po-decimal>
+      <po-datepicker class="po-lg-2" formControlName="dataHodometro" [(ngModel)]="dataHodometro" p-label="Dt Hodômetro"> </po-datepicker>
+      <po-select class="po-lg-3" formControlName="tipoAcesso" [(ngModel)]="tipoAcesso" p-label="Tipo Acesso" [p-options]="tipoAcessoOpt"> </po-select>
+      <po-input class="po-lg-2" formControlName="nrCIV" [(ngModel)]="nrCIV" p-label="Nr CIV" p-clean> </po-input>
+      <po-input class="po-lg-1" formControlName="nrCIPP" [(ngModel)]="nrCIPP" p-label="Nr CIPP"> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="tipoOperacao" [(ngModel)]="tipoOperacao" p-label="Tipo Operação" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'TipoOper'}" p-clean> </po-lookup>
+      <po-lookup class="po-lg-2" formControlName="proprietario" [(ngModel)]="proprietario" p-label="Proprietário" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'ProprVeic'}" p-clean> </po-lookup>
+      <po-input class="po-lg-6" formControlName="nomePropr" [(ngModel)]="nomePropr" p-label="Nome Propr." p-clean> </po-input>
+      <po-select class="po-lg-2" formControlName="tpPropri" [(ngModel)]="tpPropri" p-label="Tipo Propr." [p-options]="tipoProprOpt"> </po-select>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-decimal class="po-lg-2" formControlName="altura" [(ngModel)]="altura" p-label="Altura (m)" p-decimals-length="2" p-thousand-maxlength="4" p-icon="po-icon-calculator"> </po-decimal>
+      <po-decimal class="po-lg-2" formControlName="largura" [(ngModel)]="largura" p-label="Largura (m)" p-decimals-length="2" p-thousand-maxlength="4" p-icon="po-icon-calculator"> </po-decimal>
+      <po-decimal class="po-lg-2" formControlName="comprimento" [(ngModel)]="comprimento" p-label="Comprimento (m)" p-decimals-length="2" p-thousand-maxlength="4" p-icon="po-icon-calculator"> </po-decimal>
+      <po-decimal class="po-lg-2" formControlName="volume" [(ngModel)]="volume" p-label="Volume Útil (m3)" p-decimals-length="3" p-thousand-maxlength="4" p-icon="po-icon-calculator"> </po-decimal>
+      <po-decimal class="po-lg-2" formControlName="tara" [(ngModel)]="tara" p-label="Tara (kg)" p-decimals-length="2" p-thousand-maxlength="4" p-icon="po-icon-calculator"> </po-decimal>
+      <po-decimal class="po-lg-2" formControlName="carga" [(ngModel)]="carga" p-label="Carga Útil (kg)" p-decimals-length="2" p-thousand-maxlength="6" p-icon="po-icon-calculator"> </po-decimal>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-decimal class="po-lg-2" formControlName="pesoBrutoTotal" [(ngModel)]="pesoBrutoTotal" p-label="Peso Bruto Total (kg)" p-decimals-length="2" p-thousand-maxlength="6" p-icon="po-icon-calculator"> </po-decimal>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt"> </po-select>
+      <po-input class="po-lg-4" formControlName="descSituacao" [(ngModel)]="descSituacao" p-label="Descr. Situação" p-clean> </po-input>
+      <po-datepicker class="po-lg-2" formControlName="dataSituacao" [(ngModel)]="dataSituacao" p-label="Data Situação"> </po-datepicker>
+      <po-datepicker class="po-lg-2" formControlName="dataCadastro" [(ngModel)]="dataCadastro" p-label="Data Cadastro"> </po-datepicker>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-textarea class="po-lg-8" formControlName="observacoes" [ngModel]="observacoes" p-label="Observações" p-rows="6"> </po-textarea>
+    </div>
+    <br /><br />
+  </form>
+</po-page-edit>

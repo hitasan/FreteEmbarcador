@@ -1,0 +1,55 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="veiculo.codigo" p-label="Cod. Veículo"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.tipo" p-label="Tipo"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.placa" p-label="Placa"> </po-info>
+    <po-info class="po-lg-1" [p-value]="veiculo.ufPlaca" p-label="UF Placa"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.proprietario" p-label="Proprietário"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-6" [p-value]="veiculo.nomePropr" p-label="Nome Propr."> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.tpPropri" p-label="Tipo Propr."> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.tipoAcesso" p-label="Tipo Acesso"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.situacao" p-label="Situação"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-6" [p-value]="veiculo.descSituacao" p-label="Descr. Situação"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.dataSituacao" p-label="Data Situação"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.dataCadastro" p-label="Data Cadastro"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.altura" p-label="Altura"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="veiculo.altura" p-label="Altura"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.largura" p-label="Largura"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.comprimento" p-label="Comprimento"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.volume" p-label="Volume Útil"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.tara" p-label="Tara"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.carga" p-label="Carga Útil"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="veiculo.pesoBrutoTotal" p-label="Peso Bruto Total"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-3" [p-value]="veiculo.marcaModelo" p-label="Marca/Modelo"> </po-info>
+    <po-info class="po-lg-1" [p-value]="veiculo.anoFabric" p-label="Ano Fabr."> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.renavam" p-label="Renavam"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.hodometro" p-label="Vl Hodômetro"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.dataHodometro" p-label="Dt Hodômetro"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="veiculo.nrCIV" p-label="Nr CIV"> </po-info>
+    <po-info class="po-lg-1" [p-value]="veiculo.nrCIPP" p-label="Nr CIPP"> </po-info>
+    <po-info class="po-lg-2" [p-value]="veiculo.tipoOperacao" p-label="Tipo Operação"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-8" [p-value]="veiculo.observacoes" p-label="Observações"> </po-info>
+  </div>
+
+</po-page-detail>

@@ -1,0 +1,32 @@
+export interface Veiculo {
+  id?: number;
+  filial?: string;
+	codigo: string;
+	tipo: string;
+	placa: string;
+	ufPlaca: string;
+	proprietario: string;
+	nomePropr: string;
+	tpPropri?: string;
+	tipoAcesso?: string;
+	situacao: string;
+	descSituacao?: string;
+	dataCadastro?: string;
+	dataSituacao?: string;
+	altura?: number;
+	largura?: number;
+	comprimento?: number;
+	volume?: number;
+	tara?: number;
+	carga?: number;
+	pesoBrutoTotal?: number;
+	observacoes?: string;
+	marcaModelo: string;
+	anoFabric: string;
+	renavam: string;
+	hodometro?: number;
+	dataHodometro?: string;
+	nrCIV?: string;
+	nrCIPP?: number;
+	tipoOperacao?: string
+}
