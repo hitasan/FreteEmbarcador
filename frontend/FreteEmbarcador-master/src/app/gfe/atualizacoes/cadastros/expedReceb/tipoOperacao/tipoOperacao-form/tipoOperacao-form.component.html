@@ -1,0 +1,16 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="tipoOperacaoForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="tipoOper" [(ngModel)]="tipoOper" p-label="Tipo Oper." p-required p-clean> </po-input>
+      <po-input class="po-lg-6" formControlName="descricao" [(ngModel)]="descricao" p-label="Descrição" p-required p-clean> </po-input>
+      <po-select class="po-lg-2" formControlName="sentido" [(ngModel)]="sentido" p-label="Sentido" [p-options]="sentidoOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt" p-disabled> </po-select>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-3" formControlName="libRomAut" [(ngModel)]="libRomAut" p-label="Lib. Rom. Aut." [p-options]="libRomAutOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="valePedagio" [(ngModel)]="valePedagio" p-label="Vale Pedágio" [p-options]="valePedagioOpt"> </po-select>
+    </div>
+    <br /><br />
+  </form>
+</po-page-edit>

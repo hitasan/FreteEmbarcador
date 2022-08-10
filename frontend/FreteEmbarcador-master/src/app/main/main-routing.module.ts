@@ -23,6 +23,8 @@ const routes: Routes = [
           { path: 'filtroDocCarga', loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/filtroDocCarga/filtroDocCarga.module').then(m => m.FiltroDocCargaModule) },
           { path: 'motorista'     , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/motorista/motorista.module').then(m => m.MotoristaModule) },
           { path: 'veiculo'       , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/veiculo/veiculo.module').then(m => m.VeiculoModule) },
+          { path: 'tipoOperacao'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoOperacao/tipoOperacao.module').then(m => m.TipoOperacaoModule) },
+          { path: 'prazoEntrega'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/prazoEntrega/prazoEntrega.module').then(m => m.PrazoEntregaModule) },
 
       // Miscelanea - Configuração
       { path: 'configparam', loadChildren: () => import('../gfe/miscelaneas/configuracao/configparam/configparam.module').then(m => m.ConfigParamModule) },

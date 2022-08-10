@@ -1,0 +1,13 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="tipoOperacao.tipoOper" p-label="Cod. Veículo"> </po-info>
+    <po-info class="po-lg-5" [p-value]="tipoOperacao.descricao" p-label="Tipo"> </po-info>
+    <po-info class="po-lg-2" [p-value]="tipoOperacao.sentido" p-label="Placa"> </po-info>
+    <po-info class="po-lg-1" [p-value]="tipoOperacao.situacao" p-label="UF Placa"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-3" [p-value]="tipoOperacao.libRomAut" p-label="Nome Propr."> </po-info>
+    <po-info class="po-lg-2" [p-value]="tipoOperacao.valePedagio" p-label="Tipo Propr."> </po-info>
+  </div>
+</po-page-detail>

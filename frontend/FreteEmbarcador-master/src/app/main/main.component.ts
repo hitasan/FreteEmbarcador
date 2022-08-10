@@ -38,8 +38,8 @@ export class MainComponent {
                                               { label: 'Filtros Docto Carga', link: 'filtroDocCarga' },
                                               { label: 'Motoristas',          link: 'motorista' },
                                               { label: 'Veículos',            link: 'veiculo' },
-                                              //{ label: 'Tipos de Operação',       link: '/tipoOperacao',      action: this.printMenuCadAction.bind(this) },
-                                              //{ label: 'Prazos de Entrega',       link: '/prazoEntrega',      action: this.printMenuCadAction.bind(this) },
+                                              { label: 'Tipos de Operação',   link: 'tipoOperacao' },
+                                              { label: 'Prazos de Entrega',   link: 'prazoEntrega' },
                                               //{ label: 'Praças de Pedágio',       link: '/pracaPedagio',      action: this.printMenuCadAction.bind(this) },
                                               { label: 'ZZZ Distância entre Cidades', link: '/distanciaCidades',  action: this.printMenuCadAction.bind(this) } ]
                                 }/*,
