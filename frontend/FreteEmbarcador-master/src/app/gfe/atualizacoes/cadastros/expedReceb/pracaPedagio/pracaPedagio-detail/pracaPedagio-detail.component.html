@@ -1,0 +1,24 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-4" [p-value]="pracaPedagio.praca" p-label="Praça"> </po-info>
+    <po-info class="po-lg-6" [p-value]="pracaPedagio.descricao" p-label="Descrição"> </po-info>
+    <po-info class="po-lg-2" [p-value]="pracaPedagio.situacao" p-label="Situação"> </po-info>
+    <po-info class="po-lg-6" [p-value]="pracaPedagio.rodovia" p-label="Rodovia"> </po-info>
+    <po-info class="po-lg-6" [p-value]="pracaPedagio.concessiona" p-label="Concessionária"> </po-info>
+  </div>
+
+  <br />
+
+  <div class="po-row">
+    <po-tabs>
+      <po-tab p-label="Praças x Tarifas" p-active>
+        <po-table p-container="shadow" [p-hide-text-overflow]="false" [p-loading]="true" [p-columns]="colxtar" [p-striped]="true" [p-items]="pracaXtarifa"> </po-table>
+      </po-tab>
+
+      <po-tab p-label="Praças x Rotas" p-active>
+        <po-table p-container="shadow" [p-hide-text-overflow]="false" [p-loading]="true" [p-columns]="colxrota" [p-striped]="true" [p-items]="pracaXrota"> </po-table>
+      </po-tab>
+    </po-tabs>
+  </div>
+  <br /><br />
+</po-page-detail>

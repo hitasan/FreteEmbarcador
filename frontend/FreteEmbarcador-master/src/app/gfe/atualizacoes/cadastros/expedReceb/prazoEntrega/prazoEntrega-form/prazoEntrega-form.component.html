@@ -4,9 +4,9 @@
     <div class="po-row">
       <po-input class="po-lg-2" formControlName="codTabela" [(ngModel)]="codTabela" p-label="Cod. Tabela"> </po-input>
       <po-select class="po-lg-3" formControlName="tipoTabela" [(ngModel)]="tipoTabela" p-label="Tipo Tabela" [p-options]="tipoTabelaOpt" p-disabled> </po-select>
-      <po-select class="po-lg-1" formControlName="idaVolta" [(ngModel)]="idaVolta" p-label="Ida e Volta" [p-options]="idaVoltaOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="idaVolta" [(ngModel)]="idaVolta" p-label="Ida e Volta" [p-options]="idaVoltaOpt"> </po-select>
       <po-datepicker class="po-lg-2" formControlName="iniValidade" [(ngModel)]="iniValidade" p-label="Ini. Validade"> </po-datepicker>
-      <po-datepicker class="po-lg-1" formControlName="fimValidade" [(ngModel)]="fimValidade" p-label="Fim Validade"> </po-datepicker>
+      <po-datepicker class="po-lg-2" formControlName="fimValidade" [(ngModel)]="fimValidade" p-label="Fim Validade"> </po-datepicker>
     </div>
     <br />
     <div class="po-row">
@@ -55,7 +55,7 @@
     <div class="po-row">
       <po-select class="po-lg-2" formControlName="modal" [(ngModel)]="modal" p-label="Modal" [p-options]="modalOpt"> </po-select>
       <po-lookup class="po-lg-2" formControlName="classifFrete" [(ngModel)]="classifFrete" p-label="Class. Frete" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'ClassFrete'}" p-clean> </po-lookup>
-      <po-input class="po-lg-4" formControlName="descClass" [(ngModel)]="descClass" p-label="Descr. Class. Frete" p-disabled> </po-input>
+      <po-input class="po-lg-5" formControlName="descClass" [(ngModel)]="descClass" p-label="Descr. Class. Frete" p-disabled> </po-input>
     </div>
     <br />
 

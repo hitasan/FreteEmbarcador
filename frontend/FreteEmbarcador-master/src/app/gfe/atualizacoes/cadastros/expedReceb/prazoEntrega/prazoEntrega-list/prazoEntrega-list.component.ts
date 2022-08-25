@@ -32,17 +32,17 @@ export class PrazoEntregaListComponent implements OnInit {
   readonly columns: Array<PoTableColumn> = [
     { label: 'Filial'       , property: 'filial' },
     { label: 'Cód Tabela'   , property: 'codTabela', width: '5%' },
-    { label: 'Tipo Tabela'  , property: 'tipoTabela', width: '5%' },
+    { label: 'Tipo Tabela'  , property: 'tipoTabela', width: '5%', type: 'label', labels:[{label: 'Prazo', value: '1 - Prazo'},{label: '2 - Distância', value: '2 - Distância'}] },
     { label: 'Rota Origem'  , property: 'rotaOrigem' },
     { label: 'Rota Destino' , property: 'rotaDestino' },
     { label: 'Tipo Oper.'   , property: 'tipoOper', width: '5%' },
+    { label: 'Class Frete'  , property: 'classifFrete', width: '5%' },
     { label: 'Tipo Veículo' , property: 'tipoVeiculo', width: '5%' },
-    { label: 'Cod. Grupo'   , property: 'codGrupo', width: '5%' },
+    { label: 'Cod Grupo'    , property: 'codGrupo', width: '5%' },
     { label: 'Transportador', property: 'transportador', width: '5%' },
-    { label: 'Modal'        , property: 'modal', width: '10%' },
-    { label: 'Tipo Prazo'   , property: 'tipoPrazo', width: '10%' },
+    { label: 'Modal'        , property: 'modal', width: '10%', type: 'label', labels:[{label:'Indiferente', value:'1 - Indiferente'},{label:'Rodoviario', value:'2 - Rodoviario'},{label:'Ferroviario', value:'3 - Ferroviario'},{label:'Aereo', value: '4 - Aereo'},{label:'Aquaviario', value:'5 - Aquaviario'},{label:'Dutoviario', value:'6 - Dutoviario'},{label:'Multimodal', value:'7 - Multimodal'}] },
+    { label: 'Tipo Prazo'   , property: 'tipoPrazo', width: '10%', type: 'label', labels:[{label:'Dias Uteis', value:'0 - Dias Uteis'},{label: 'Dias Corridos', value:'1 - Dias Corridos'},{label:'Horas', value:'2 - Horas'}] },
     { label: 'Prazo'        , property: 'prazo', width: '5%' },
-    { label: 'Class. Frete' , property: 'classifFrete', width: '5%' }
   ];
 
   constructor(

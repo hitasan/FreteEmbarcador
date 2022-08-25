@@ -25,6 +25,7 @@ const routes: Routes = [
           { path: 'veiculo'       , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/veiculo/veiculo.module').then(m => m.VeiculoModule) },
           { path: 'tipoOperacao'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoOperacao/tipoOperacao.module').then(m => m.TipoOperacaoModule) },
           { path: 'prazoEntrega'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/prazoEntrega/prazoEntrega.module').then(m => m.PrazoEntregaModule) },
+          { path: 'pracaPedagio'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/pracaPedagio/pracaPedagio.module').then(m => m.PracaPedagioModule) },
 
       // Miscelanea - Configuração
       { path: 'configparam', loadChildren: () => import('../gfe/miscelaneas/configuracao/configparam/configparam.module').then(m => m.ConfigParamModule) },

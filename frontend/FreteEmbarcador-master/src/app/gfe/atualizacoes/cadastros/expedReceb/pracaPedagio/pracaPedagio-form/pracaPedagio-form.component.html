@@ -1,0 +1,23 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="pracaPedagioForm">
+    <div class="po-row">
+      <po-input class="po-lg-4" formControlName="praca" [(ngModel)]="praca" p-label="Praça"> </po-input>
+      <po-input class="po-lg-6" formControlName="descricao" [(ngModel)]="descricao" p-label="Descrição"> </po-input>
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt" p-disabled> </po-select>
+      <po-input class="po-lg-6" formControlName="rodovia" [(ngModel)]="rodovia" p-label="Rodovia"> </po-input>
+      <po-input class="po-lg-6" formControlName="concessiona" [(ngModel)]="concessiona" p-label="Concessionária"> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-tabs>
+        <po-tab p-label="Praças x Tarifas" p-active>
+          <po-table p-container="shadow" [p-hide-text-overflow]="false" [p-loading]="isTableLoading" [p-columns]="colxtar" [p-selectable]="true" [p-single-select]="true" [p-sort]="true" [p-striped]="true" [p-items]="pracaTarifa"> </po-table>
+        </po-tab>
+        <po-tab p-label="Praças x Rotas">
+          <po-table p-container="shadow" [p-hide-text-overflow]="false" [p-loading]="isTableLoading" [p-columns]="colxrota" [p-selectable]="true" [p-single-select]="true" [p-sort]="true" [p-striped]="true" [p-items]="pracaRota"> </po-table>
+        </po-tab>
+      </po-tabs>
+    </div>
+    <br /><br />
+  </form>
+</po-page-edit>
