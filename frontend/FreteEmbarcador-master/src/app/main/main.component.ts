@@ -41,7 +41,7 @@ export class MainComponent {
                                               { label: 'Tipos de Operação',       link: 'tipoOperacao' },
                                               { label: 'Prazos de Entrega',       link: 'prazoEntrega' },
                                               { label: 'Praças de Pedágio',       link: 'pracaPedagio' },
-                                              { label: 'Distância entre Cidades', link: '/distanciaCidades',  action: this.printMenuCadAction.bind(this) } ]
+                                              { label: 'Distância entre Cidades', link: 'distanciaCidade' } ]
                                 }/*,
                                 { label: 'Pátios e Portarias',
                                   subItems: [ { label: 'Visitantes',         link: '/visitantes',       action: this.printMenuCadAction.bind(this) },

@@ -26,6 +26,9 @@ const routes: Routes = [
           { path: 'tipoOperacao'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoOperacao/tipoOperacao.module').then(m => m.TipoOperacaoModule) },
           { path: 'prazoEntrega'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/prazoEntrega/prazoEntrega.module').then(m => m.PrazoEntregaModule) },
           { path: 'pracaPedagio'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/pracaPedagio/pracaPedagio.module').then(m => m.PracaPedagioModule) },
+          { path: 'distanciaCidade', loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/distanciaCidade/distanciaCidade.module').then(m => m.DistanciaCidadeModule) },
+
+          // Patios e Portarias
 
       // Miscelanea - Configuração
       { path: 'configparam', loadChildren: () => import('../gfe/miscelaneas/configuracao/configparam/configparam.module').then(m => m.ConfigParamModule) },

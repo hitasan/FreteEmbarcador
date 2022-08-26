@@ -1,0 +1,64 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="distanciaCidadeForm">
+    <po-divider class="po-lg-12" p-label="Identificação"></po-divider>
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="codTabela" [(ngModel)]="codTabela" p-label="Cod. Tabela" p-disabled> </po-input>
+      <po-select class="po-lg-3" formControlName="tipoTabela" [(ngModel)]="tipoTabela" p-label="Tipo Tabela" [p-options]="tipoTabelaOpt" p-disabled> </po-select>
+      <po-select class="po-lg-2" formControlName="idaVolta" [(ngModel)]="idaVolta" p-label="Ida e Volta" [p-options]="idaVoltaOpt"> </po-select>
+      <po-datepicker class="po-lg-2" formControlName="iniValidade" [(ngModel)]="iniValidade" p-label="Ini. Validade"> </po-datepicker>
+      <po-datepicker class="po-lg-2" formControlName="fimValidade" [(ngModel)]="fimValidade" p-label="Fim Validade"> </po-datepicker>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-number class="po-lg-1" formControlName="prioridade" [(ngModel)]="prioridade" p-label="Prioridade"> </po-number>
+    </div>
+    <br />
+
+    <po-divider class="po-lg-12" p-label="Origem"></po-divider>
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="cidOrigem" [(ngModel)]="cidOrigem" p-label="Cid. Origem" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'CidOrigem'}" p-clean> </po-lookup>
+    </div>
+    <br />
+
+    <po-divider class="po-lg-12" p-label="Destino"></po-divider>
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="cidDest" [(ngModel)]="cidDest" p-label="Cid. Destino" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'CidDestino'}" p-clean> </po-lookup>
+    </div>
+    <br />
+
+    <po-divider class="po-lg-12" p-label="Origem x Destino"></po-divider>
+    <div class="po-row">
+      <po-input class="po-lg-6" formControlName="rotaOrigem" [(ngModel)]="rotaOrigem" p-label="Rota Origem" p-disabled> </po-input>
+      <po-input class="po-lg-6" formControlName="rotaDestino" [(ngModel)]="rotaDestino" p-label="Rota Destino" p-disabled> </po-input>
+    </div>
+    <br />
+
+    <po-divider class="po-lg-12" p-label="Filtros"></po-divider>
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="tipoOper" [(ngModel)]="tipoOper" p-label="Tipo Oper." [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'TipoOper'}" p-clean> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descTpOper" [(ngModel)]="descTpOper" p-label="Descr. Tipo Oper." p-disabled> </po-input>
+      <po-lookup class="po-lg-2" formControlName="tipoVeiculo" [(ngModel)]="tipoVeiculo" p-label="Tipo Veículo" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'TipoVeic'}" p-clean> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descTpVeic" [(ngModel)]="descTpVeic" p-label="Descr. Tipo Veíc." p-disabled> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="codGrupo" [(ngModel)]="codGrupo" p-label="Cod. Grupo" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'CodGrupo'}" p-clean> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descGrupo" [(ngModel)]="descGrupo" p-label="Descr. Grupo Transp." p-disabled> </po-input>
+      <po-lookup class="po-lg-2" formControlName="transportador" [(ngModel)]="transportador" p-label="Transp." [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'Transportador'}" p-clean> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descTransp" [(ngModel)]="descTransp" p-label="Nome Transp." p-disabled> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-2" formControlName="modal" [(ngModel)]="modal" p-label="Modal" [p-options]="modalOpt"> </po-select>
+      <po-lookup class="po-lg-2" formControlName="classifFrete" [(ngModel)]="classifFrete" p-label="Class. Frete" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'ClassFrete'}" p-clean> </po-lookup>
+      <po-input class="po-lg-5" formControlName="descClass" [(ngModel)]="descClass" p-label="Descr. Class. Frete" p-disabled> </po-input>
+    </div>
+    <br />
+
+    <po-divider class="po-lg-12" p-label="Valores"></po-divider>
+    <div class="po-row">
+      <po-number class="po-lg-2" formControlName="distEstimad" [(ngModel)]="distEstimad" p-label="Dist. Estim.(km)" p-icon="po-icon-calculator" p-max=999999 p-step="2" p-maxlength=6 > </po-number> <!-- p-mask="999.999,99" nao esta funcionando, verificar -->
+    </div>
+    <br /><br />
+  </form>
+</po-page-edit>

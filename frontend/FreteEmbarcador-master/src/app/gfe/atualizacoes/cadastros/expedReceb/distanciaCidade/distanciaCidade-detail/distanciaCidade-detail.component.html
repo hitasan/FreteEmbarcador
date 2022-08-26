@@ -1,0 +1,63 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <po-divider class="po-lg-12" p-label="Identificação"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.codTabela" p-label="Cod. Tabela"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.tipoTabela" p-label="Tipo Tabela"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.idaVolta" p-label="Ida e Volta"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.iniValidade" p-label="Ini. Validade"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.fimValidade" p-label="Fim Validade"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.prioridade" p-label="Nivel Priorid."> </po-info>
+  </div>
+  <br />
+
+  <po-divider class="po-lg-12" p-label="Origem"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.cidOrigem" p-label="Cid. Origem"> </po-info>
+  </div>
+  <br />
+
+  <po-divider class="po-lg-12" p-label="Destino"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.cidDest" p-label="Cid. Destino"> </po-info>
+  </div>
+  <br />
+
+  <po-divider class="po-lg-12" p-label="Origem x Destino"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-6" [p-value]="distanciaCidade.rotaOrigem" p-label="Rota Origem"> </po-info>
+    <po-info class="po-lg-6" [p-value]="distanciaCidade.rotaDestino" p-label="Rota Destino"> </po-info>
+  </div>
+  <br />
+
+  <po-divider class="po-lg-12" p-label="Filtros"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.tipoOper" p-label="Tipo Operação"> </po-info>
+    <po-info class="po-lg-4" [p-value]="distanciaCidade.descTpOper" p-label="Desc. Tipo Operação"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.tipoVeiculo" p-label="Tipo Veículo"> </po-info>
+    <po-info class="po-lg-4" [p-value]="distanciaCidade.descTpVeic" p-label="Desc. Tipo Veículo"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.codGrupo" p-label="Cod. Grupo"> </po-info>
+    <po-info class="po-lg-4" [p-value]="distanciaCidade.descGrupo" p-label="Desc. Grupo Transp."> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.transportador" p-label="Transportador"> </po-info>
+    <po-info class="po-lg-4" [p-value]="distanciaCidade.descTransp" p-label="Nome Transportador"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.modal" p-label="Modal"> </po-info>
+    <po-info class="po-lg-2" [p-value]="distanciaCidade.classifFrete" p-label="Class. Frete"> </po-info>
+    <po-info class="po-lg-4" [p-value]="distanciaCidade.descClass" p-label="Desc. Class. Frete"> </po-info>
+  </div>
+  <br />
+
+  <po-divider class="po-lg-12" p-label="Valores"></po-divider>
+  <div class="po-row">
+    <po-info class="po-lg-1" [p-value]="distanciaCidade.distEstimad" p-label="Prazo"> </po-info>
+  </div>
+
+  <br /><br />
+</po-page-detail>
