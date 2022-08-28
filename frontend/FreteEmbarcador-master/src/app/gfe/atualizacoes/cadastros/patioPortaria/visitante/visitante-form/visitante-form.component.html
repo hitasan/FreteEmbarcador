@@ -1,0 +1,31 @@
+<po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
+  <form [formGroup]="visitanteForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="visitante" [(ngModel)]="visitante" p-label="Visitante" p-disabled> </po-input>
+      <po-input class="po-lg-4" formControlName="nome" [(ngModel)]="nome" p-label="Nome" p-required> </po-input>
+      <po-input class="po-lg-2" formControlName="cpf" [(ngModel)]="cpf" p-label="CPF" p-mask="999.999.999-99" p-required> </po-input>
+      <po-input class="po-lg-2" formControlName="rgVisitante" [(ngModel)]="rgVisitante" p-label="RG Visitante"> </po-input>
+      <po-input class="po-lg-2" formControlName="orgaoExped" [(ngModel)]="orgaoExped" p-label="Orgão Exped."> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-2" formControlName="funcionario" [(ngModel)]="funcionario" p-label="Funcionário" [p-options]="funcionarioOpt"> </po-select>
+      <po-input class="po-lg-4" formControlName="endereco" [(ngModel)]="endereco" p-label="Endereço"> </po-input>
+      <po-input class="po-lg-3" formControlName="bairro" [(ngModel)]="bairro" p-label="Bairro"> </po-input>
+      <po-input class="po-lg-2" formControlName="cep" [(ngModel)]="cep" p-label="CEP" p-mask="99999-999"> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-lookup class="po-lg-2" formControlName="nrCidade" [(ngModel)]="nrCidade" p-label="Nr Cidade" [p-columns]="columns" [p-field-format]="fieldFormat" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'Cidade'}" p-clean> </po-lookup>
+      <po-input class="po-lg-4" formControlName="nmCidade" [(ngModel)]="nmCidade" p-label="Cidade" p-disabled> </po-input>
+      <po-input class="po-lg-2" formControlName="uf" [(ngModel)]="uf" p-label="UF" p-disabled> </po-input>
+      <po-input class="po-lg-2" formControlName="fone" [(ngModel)]="fone" p-label="Fone" p-mask="(99) 99999-9999"> </po-input>
+      <po-datepicker class="po-lg-2" formControlName="dataImplant" [(ngModel)]="dataImplant" p-label="Data Implant." p-disabled> </po-datepicker>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-textarea class="po-lg-8" formControlName="observacao" [ngModel]="observacao" p-label="Observação" p-rows="6"> </po-textarea>
+    </div>
+    <br /><br />
+  </form>
+</po-page-edit>

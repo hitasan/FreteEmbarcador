@@ -17,18 +17,19 @@ const routes: Routes = [
           { path: 'unidMedidas'     , loadChildren: () => import('../gfe/atualizacoes/cadastros/gerais/unidadeMedida/unidadeMedida.module').then(m => m.UnidadeMedidaModule) },
 
           // Expedicao/Recebimento
-          { path: 'tipoDocCarga'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoDocCarga/tipoDocCarga.module').then(m => m.TipoDocCargaModule) },
-          { path: 'unitizador'    , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/unitizador/unitizador.module').then(m => m.UnitizadorModule) },
-          { path: 'itemExcecao'   , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/itemExcecao/itemExcecao.module').then(m => m.ItemExcecaoModule) },
-          { path: 'filtroDocCarga', loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/filtroDocCarga/filtroDocCarga.module').then(m => m.FiltroDocCargaModule) },
-          { path: 'motorista'     , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/motorista/motorista.module').then(m => m.MotoristaModule) },
-          { path: 'veiculo'       , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/veiculo/veiculo.module').then(m => m.VeiculoModule) },
-          { path: 'tipoOperacao'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoOperacao/tipoOperacao.module').then(m => m.TipoOperacaoModule) },
-          { path: 'prazoEntrega'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/prazoEntrega/prazoEntrega.module').then(m => m.PrazoEntregaModule) },
-          { path: 'pracaPedagio'  , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/pracaPedagio/pracaPedagio.module').then(m => m.PracaPedagioModule) },
+          { path: 'tipoDocCarga'   , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoDocCarga/tipoDocCarga.module').then(m => m.TipoDocCargaModule) },
+          { path: 'unitizador'     , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/unitizador/unitizador.module').then(m => m.UnitizadorModule) },
+          { path: 'itemExcecao'    , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/itemExcecao/itemExcecao.module').then(m => m.ItemExcecaoModule) },
+          { path: 'filtroDocCarga' , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/filtroDocCarga/filtroDocCarga.module').then(m => m.FiltroDocCargaModule) },
+          { path: 'motorista'      , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/motorista/motorista.module').then(m => m.MotoristaModule) },
+          { path: 'veiculo'        , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/veiculo/veiculo.module').then(m => m.VeiculoModule) },
+          { path: 'tipoOperacao'   , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/tipoOperacao/tipoOperacao.module').then(m => m.TipoOperacaoModule) },
+          { path: 'prazoEntrega'   , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/prazoEntrega/prazoEntrega.module').then(m => m.PrazoEntregaModule) },
+          { path: 'pracaPedagio'   , loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/pracaPedagio/pracaPedagio.module').then(m => m.PracaPedagioModule) },
           { path: 'distanciaCidade', loadChildren: () => import('../gfe/atualizacoes/cadastros/expedReceb/distanciaCidade/distanciaCidade.module').then(m => m.DistanciaCidadeModule) },
 
           // Patios e Portarias
+          { path: 'visitante', loadChildren: () => import('../gfe/atualizacoes/cadastros/patioPortaria/visitante/visitante.module').then(m => m.VisitanteModule) },
 
       // Miscelanea - Configuração
       { path: 'configparam', loadChildren: () => import('../gfe/miscelaneas/configuracao/configparam/configparam.module').then(m => m.ConfigParamModule) },

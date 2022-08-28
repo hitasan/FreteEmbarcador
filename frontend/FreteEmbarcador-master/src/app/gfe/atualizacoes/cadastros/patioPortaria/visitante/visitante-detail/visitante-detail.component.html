@@ -1,0 +1,29 @@
+<po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="visitante.visitante" p-label="Visitante"> </po-info>
+    <po-info class="po-lg-4" [p-value]="visitante.nome" p-label="Nome"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.cpf" p-label="CPF"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.rgVisitante" p-label="RG Visitante"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.orgaoExped" p-label="Orgão Exped."> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-2" [p-value]="visitante.funcionario" p-label="Funcionário"> </po-info>
+    <po-info class="po-lg-4" [p-value]="visitante.endereco" p-label="Endereço"> </po-info>
+    <po-info class="po-lg-3" [p-value]="visitante.bairro" p-label="Bairro"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.cep" p-label="CEP"> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-1" [p-value]="visitante.nrCidade" p-label="Nr Cidade"> </po-info>
+    <po-info class="po-lg-4" [p-value]="visitante.nmCidade" p-label="Cidade"> </po-info>
+    <po-info class="po-lg-1" [p-value]="visitante.uf" p-label="UF"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.fone" p-label="Fone"> </po-info>
+    <po-info class="po-lg-2" [p-value]="visitante.dataImplant" p-label="Data Implant."> </po-info>
+  </div>
+  <br />
+  <div class="po-row">
+    <po-info class="po-lg-8" [p-value]="visitante.observacao" p-label="Observação"> </po-info>
+  </div>
+  <br /><br />
+</po-page-detail>

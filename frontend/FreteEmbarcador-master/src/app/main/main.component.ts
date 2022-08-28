@@ -42,16 +42,17 @@ export class MainComponent {
                                               { label: 'Prazos de Entrega',       link: 'prazoEntrega' },
                                               { label: 'Praças de Pedágio',       link: 'pracaPedagio' },
                                               { label: 'Distância entre Cidades', link: 'distanciaCidade' } ]
-                                }/*,
-                                { label: 'Pátios e Portarias',
-                                  subItems: [ { label: 'Visitantes',         link: '/visitantes',       action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Restrições',         link: '/restricoes',       action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Perguntas',          link: '/perguntas',        action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Endereços de Carga', link: '/enderecoCarga',    action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Operações',          link: '/operacoes',        action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Config. Operações',  link: '/configOperacoes',  action: this.printMenuCadAction.bind(this) },
-                                              { label: 'Recorrências',       link: '/recorrencias',     action: this.printMenuCadAction.bind(this) } ]
                                 },
+                                { label: 'Pátios e Portarias',
+                                  subItems: [ { label: 'Visitantes',         link: 'visitante' } ]
+                                  //            { label: 'Restrições',         link: '/restricoes',       action: this.printMenuCadAction.bind(this) },
+                                  //            { label: 'Perguntas',          link: '/perguntas',        action: this.printMenuCadAction.bind(this) },
+                                  //            { label: 'Endereços de Carga', link: '/enderecoCarga',    action: this.printMenuCadAction.bind(this) },
+                                  //            { label: 'Operações',          link: '/operacoes',        action: this.printMenuCadAction.bind(this) },
+                                  //            { label: 'Config. Operações',  link: '/configOperacoes',  action: this.printMenuCadAction.bind(this) },
+                                  //            { label: 'Recorrências',       link: '/recorrencias',     action: this.printMenuCadAction.bind(this) } ]
+                                },
+                               /*
                                 { label: 'Ocorrências',
                                   subItems: [ { label: 'Tipos Ocorrência',   link: '/tipoOcorrencia',   action: this.printMenuCadAction.bind(this) },
                                               { label: 'Motivos Ocorrência', link: '/motivoOcorrencia', action: this.printMenuCadAction.bind(this) },
