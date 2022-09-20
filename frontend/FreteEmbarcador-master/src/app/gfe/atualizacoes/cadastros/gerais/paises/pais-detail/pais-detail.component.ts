@@ -13,8 +13,8 @@ import { PaisesService } from '../paises.service';
 })
 export class PaisDetailComponent implements OnInit {
 
+  title = '';
   pais: Pais;
-  title = 'Detalhando';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -40,7 +40,7 @@ export class PaisDetailComponent implements OnInit {
   remove() {
     this.dialog.confirm({
       message: 'Tem certeza que deseja remover este país?',
-      title: 'Remoção',
+      title: 'Excluir',
       confirm: this.confirmRemove.bind(this)
     });
   }

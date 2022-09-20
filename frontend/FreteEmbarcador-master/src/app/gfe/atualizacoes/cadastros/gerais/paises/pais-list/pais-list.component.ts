@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 
 import { PoPageAction, PoTableAction, PoTableColumn, PoDialogService, PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 
-import { PaisesService } from '../paises.service';
 import { Pais } from '../pais.interface';
+import { PaisesService } from '../paises.service';
 
 @Component({
   selector: 'app-pais-list',
@@ -17,22 +17,21 @@ export class PaisesListComponent implements OnInit {
   isTableLoading = false;
 
   readonly actions: Array<PoPageAction> = [
-    { label: 'Adicionar',  icon: 'po-icon-plus',    url: 'app/paises/new' },
-    { label: 'Editar',     icon: 'po-icon-edit',    url: 'app/paises/edit/${pais.id}'},
-    { label: 'Visualizar', icon: 'po-icon-eye',     url: 'app/paises/detail/${pais.id}'},
-    { label: 'Excluir',    icon: 'po-icon-delete',  url: 'app/paises/detail/${pais.id}', type: 'danger'},
-    { label: 'Importar',   icon: 'po-icon-upload',  action: this.advancedActionModal.bind(this)}
+    { label: 'Incluir'   , separator: true, type: 'default', icon: 'po-icon-plus'  , url: 'app/paises/new' },
+    { label: 'Visualizar', separator: true, type: 'default', icon: 'po-icon-eye'   , url: 'app/paises/detail/${paises.id}' },
+    { label: 'Alterar'   , separator: true, type: 'default', icon: 'po-icon-edit'  , url: 'app/paises/edit/${paises.id}' },
+    { label: 'Excluir'   , separator: true, type: 'danger' , icon: 'po-icon-delete', url: 'app/paises/detail/${paises.id}' },
+    { label: 'Importar'  , separator: true, type: 'default', icon: 'po-icon-upload', action: this.advancedActionModal.bind(this)}
   ];
 
-  readonly tableActions: Array<PoTableAction> = [ // Comentar apos botões funcionarem pois ações dever ser pelo botões para nao ter menu em cada item da tabela
-    { label: 'Editar', action: pais => this.router.navigate([`app/paises/edit/${pais.id}`])},
-    { label: 'Visualizar', action: pais => this.router.navigate([`app/paises/detail/${pais.id}`]) },
-    { label: 'Remover', separator: true, type: 'danger', icon: 'po-icon-delete', action: this.onRemove.bind(this) },
-    { label: 'Copiar', separator: true, icon: 'po-icon po-icon-copy' }
+  readonly tableActions: Array<PoTableAction> = [
+    { label: 'Visualizar', separator: true, type: 'default', icon: 'po-icon-eye'   , action: pais => this.router.navigate([`app/paises/detail/${pais.id}`]) },
+    { label: 'Alterar'   , separator: true, type: 'default', icon: 'po-icon-edit'  , action: pais => this.router.navigate([`app/paises/edit/${pais.id}`])},
+    { label: 'Excluir'   , separator: true, type: 'danger' , icon: 'po-icon-delete', action: this.onRemove.bind(this) }
   ];
 
   readonly columns: Array<PoTableColumn> = [{ label: 'Filial', property: 'filial' },
-                                            { label: 'Cod. do País', property: 'codigo', width: '5%' },
+                                            { label: 'Cód. do País', property: 'codigo', width: '5%' },
                                             { label: 'Descrição', property: 'nome' },
                                             { label: 'Sigla', property: 'sigla', width: '5%' },
                                             { label: 'Cod. Abics', property: 'codAbics', width: '7%' },
@@ -55,8 +54,8 @@ export class PaisesListComponent implements OnInit {
 
   private onRemove({ id }: Pais) {
     this.dialog.confirm({
-      message: 'Tem certeza que deseja remover este país?',
-      title: 'Exclusão',
+      message: 'Tem certeza que deseja excluir este país?',
+      title: 'EXCLUIR',
       confirm: this.confirmRemove.bind(this, id)
     });
   }

@@ -1,0 +1,360 @@
+{
+  "customers": [
+    {
+      "id": 2,
+      "name": "Alex Green",
+      "email": "alex@gmail.com",
+      "birthday": "2000-01-01",
+      "genre": "male",
+      "cpf": "31403713812",
+      "zipcode": "08030-230",
+      "address_number": 114
+    }
+  ],
+  "generica": [
+    {
+      "id": 1,
+      "filial": " ",
+      "tabela": "ID",
+      "chave": "PORT-BR",
+      "descricao": "PORTUGUES"
+    },
+    {
+      "id": 2,
+      "filial": " ",
+      "tabela": "ID",
+      "chave": "ALEMAO",
+      "descricao": "ALEMAO"
+    },
+    {
+      "id": 3,
+      "filial": " ",
+      "tabela": "ID",
+      "chave": "ESP",
+      "descricao": "ESPANHOL"
+    },
+    {
+      "id": 4,
+      "filial": " ",
+      "tabela": "ID",
+      "chave": "FRANCE",
+      "descricao": "FRANCES"
+    },
+    {
+      "id": 5,
+      "filial": " ",
+      "tabela": "ID",
+      "chave": "INGLES",
+      "descricao": "INGLES"
+    },
+    {
+      "id": 6,
+      "filial": " ",
+      "tabela": "MQ",
+      "chave": "NE",
+      "descricao": "NFE"
+    }
+  ],
+  "paises": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "codigo": "105",
+      "nome": "Brasil",
+      "sigla": "BRA",
+      "idioma": "PORTUGUES",
+      "descIdioma": "PORTUGUES",
+      "dinalad": "",
+      "naladi": "",
+      "certOrigemAladi": "",
+      "certOrigemComum": "",
+      "certOrigemMercosul": "",
+      "certOrigemSGPC": "",
+      "exigeLincImport": "",
+      "paisIngles": "",
+      "codAbics": "",
+      "codigoRIEX": "",
+      "codSisxomex": "",
+      "codigoFiesp": "",
+      "claveMexico": "",
+      "nacionalidad": "",
+      "codERP": "",
+      "codPaisDUE": ""
+    },
+    {
+      "filial": "",
+      "codigo": "999",
+      "nome": "TESTADOR",
+      "sigla": "",
+      "idioma": "Robert Bruce Banner",
+      "descIdioma": "LINGUA INGLESA",
+      "dinalad": "",
+      "naladi": "2 - Não",
+      "certOrigemAladi": "",
+      "certOrigemComum": "",
+      "certOrigemMercosul": "",
+      "certOrigemSGPC": "",
+      "exigeLincImport": "",
+      "paisIngles": "TESTER",
+      "codAbics": "",
+      "codigoRIEX": "",
+      "codSisxomex": "",
+      "codigoFiesp": "",
+      "claveMexico": "",
+      "nacionalidad": "TESTADEIRO",
+      "codERP": "",
+      "codPaisDUE": "",
+      "id": 2
+    }
+  ],
+  "cidades": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "cidade": "3550308",
+      "nome": "SÃO PAULO",
+      "estado": "RIO GRANDE DO NORTE",
+      "pais": "105",
+      "sigla": "SPCAP",
+      "suframa": " ",
+      "cepInicial": "08030-230",
+      "cepFinal": "08030-230",
+      "percISSFrete": 0,
+      "situacao": "ATIVO",
+      "regiaoRelat": ""
+    }
+  ],
+  "issOutroServicos": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "codCidade": "3550308",
+      "tipoOcorrencia": "",
+      "percISS": 0
+    }
+  ],
+  "unidadeMedida": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "uniMedida": "KG",
+      "descricao": "QUILOGRAMA",
+      "codSiscomex": " ",
+      "codMercosul": " ",
+      "codRiex": " ",
+      "codUMSRF": " ",
+      "codCertFiesp": " ",
+      "codUMFCI": " ",
+      "codERP": " "
+    }
+  ],
+  "emitentes": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "codigo": "00000000000000",
+      "nome": "EMITENTE TRANSPORTADOR PADRÃO",
+      "fantasia": "EMITENTE PADRÃO",
+      "abreviado": "PADRÃO",
+      "natureza": "",
+      "grupo": "",
+      "nascCriacao": "",
+      "dtCadastro": "",
+      "origem": "",
+      "situacao": "",
+      "empFilial": "",
+      "transp": "",
+      "cliente": "",
+      "fornecedor": "",
+      "autonomo": "",
+      "endereco": "",
+      "complemento": "",
+      "bairro": "",
+      "cep": "",
+      "nrCidade": "",
+      "idfed": "",
+      "regTribut": "",
+      "contribICMS": "",
+      "inscEstRG": "",
+      "orgaoExp": "",
+      "inscrMunic": "",
+      "caixaPostal": "",
+      "email": "",
+      "contribISS": "",
+      "fone1": "",
+      "ramal1": "",
+      "fone2": "",
+      "ramal2": "",
+      "fax": "",
+      "ramalFax": "",
+      "website": "",
+      "movAutonomo": "",
+      "categoria": "",
+      "modal": "",
+      "negocFrete": "",
+      "frotaDedic": "",
+      "rntrc": "",
+      "inss": "",
+      "dependentes": "",
+      "maxDocCarg": "",
+      "transpFatur": "",
+      "nomeFatur": "",
+      "acaoOcor": "",
+      "agrupDoctos": "",
+      "pfCalc": "",
+      "pfFilial": "",
+      "pfUF": "",
+      "pfClass": "",
+      "pfTpFrete": "",
+      "grpNormal": "",
+      "grpCompVal": "",
+      "grpCompImp": "",
+      "grpDevol": "",
+      "grpRedesp": "",
+      "grpReentreg": "",
+      "grpServico": "",
+      "entregObrig": "",
+      "calcVencto": "",
+      "prazo": "",
+      "diaNaoUtil": "",
+      "tipoFrequen": "",
+      "diaBase1": "",
+      "diaBase2": "",
+      "diaBase3": "",
+      "diaBase4": "",
+      "diaBase5": "",
+      "segunda": "",
+      "terca": "",
+      "quarta": "",
+      "quinta": "",
+      "sexta": "",
+      "icmsPresum": "",
+      "apuracIcms": "",
+      "apuracIss": "",
+      "confirmPfAuto": "",
+      "subsTribut": "",
+      "emiteCte": "",
+      "observacoes": "",
+      "cxPostEDI": "",
+      "geraFatAut": "",
+      "grupoEDI": "",
+      "grpEmitGerenc": "",
+      "posicaoCte": "",
+      "codigoErp": "",
+      "lojaERP": "",
+      "transpErp": "",
+      "valePedagio": "",
+      "ocorRetroat": "",
+      "percIssSimples": "",
+      "redespachante": "",
+      "estExcIcms": "",
+      "tpServico": "",
+      "cteSubcontrat": "",
+      "critAgrupDc": ""
+    }
+  ],
+  "contatoEmitente": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "codEmitente": "00000000000000",
+      "sequencia": "0001",
+      "situacao": "ATIVO",
+      "nome": "CONTATO DO EMITENTE",
+      "apelido": "CONTATO",
+      "setor": "ADMINISTRATIVO",
+      "funcao": "ADMINISTRATIVO",
+      "email": "CONTATO_ADM@GMAIL.COM",
+      "fone1": "",
+      "ramal1": "",
+      "fone2": "",
+      "ramal2": "",
+      "fax": "",
+      "ramalFax": "",
+      "recebePreFat": "",
+      "observacoes": "",
+      "recebeXmlNFe": "",
+      "recebeRef": "",
+      "recebeCotacao": "",
+      "recebeAgendam": "",
+      "recebeContrato": ""
+    }
+  ],
+  "grupoEmitente": [
+    {
+      "id": 1,
+      "filial": "        ",
+      "grupo": "000000",
+      "descricao": "GRUPO PADRÃO",
+      "situacao": "ATIVO",
+      "finalidade": "",
+      "origem": "SISTEMA"
+    }
+  ],
+  "parametro": [
+    {
+      "filial": " ",
+      "parametro": "MV_CADERP",
+      "conteudo": "2",
+      "descricao": "DESCRICAO DO PARAMETRO",
+      "id": 1
+    },
+    {
+      "filial": "",
+      "parametro": "MV_NFEDIR",
+      "conteudo": "c:\\tmp",
+      "descricao": "Diretório arquivos XML NF-e",
+      "id": 2
+    }
+  ],
+  "usuario": [
+    {
+      "id": 1,
+      "codigo": "admin",
+      "nome": "ADMINISTRADOR",
+      "senha": " ",
+      "email": "jefflaiho@hotmail.com",
+      "cargo": "ADMINISTRADOR",
+      "status": "Desbloqueado",
+      " dataStatus": "",
+      " trocaSenha": "FALSE"
+    }
+  ],
+  "empresa": [
+    {
+      "id": 1,
+      "codigo": "T1",
+      "descricao": "EMPRESA T1"
+    }
+  ],
+  "grupoempresa": [
+    {
+      "id": 1,
+      "codigo": "T1",
+      "descricao": "EMPRESA T1",
+      "tamanho": 8,
+      "layout": "EEUUUFFF"
+    }
+  ],
+  "unidadenegocio": [
+    {
+      "id": 1,
+      "codigo": "MG",
+      "descricao": "UNIDADE MG"
+    }
+  ],
+  "filial": [
+    {
+      "codigo": "01",
+      "descricao": "FILIAL 01",
+      "nomecomercial": "FILIAL COMERCIAL 01",
+      "razaosocial": "FILIAL TESTE LTDA",
+      "idfed": "12345678901234",
+      "telefone": "11-1234-1234",
+      "fax": "11-1234-1234",
+      "inscrmunicipal": "ISENTO",
+      "inscrestadual": "ISENTO",
+      "id": 1
+    }
+  ]
+}

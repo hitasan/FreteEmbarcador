@@ -12,7 +12,7 @@ export interface Pais {
 	certOrigemComum?: string;
 	certOrigemMercosul?: string;
 	certOrigemSGPC?: string;
-	exigeLincImport?: string;
+	exigeLicImport?: string;
 	paisIngles?: string;
 	codAbics?: string;
 	codigoRIEX?: string;

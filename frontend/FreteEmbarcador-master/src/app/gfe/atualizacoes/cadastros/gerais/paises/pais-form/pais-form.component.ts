@@ -1,11 +1,11 @@
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { PoNotificationService, PoLookupColumn, PoDynamicFormField } from '@po-ui/ng-components';
+import { PoNotificationService, PoLookupColumn, PoDynamicFormField, PoSelectOption } from '@po-ui/ng-components';
 
-import { PaisesService } from '../paises.service';
 import { Pais } from '../pais.interface';
+import { PaisesService } from '../paises.service';
 
 @Component({
   selector: 'app-pais-form',
@@ -14,12 +14,51 @@ import { Pais } from '../pais.interface';
 })
 export class PaisFormComponent implements OnInit {
 
-  title = 'Novo país';
-  idioma: string;
-  codPaisDUE: string;
+  title = 'INCLUIR - País';
+  codigo: string;
+  nome: string = '';
+  sigla: string = '';
+  idioma: string = '';
+  descIdioma: string = '';
+  dinalad: string = '';
+  paisIngles: string = '';
+  nacionalidad: string = '';
+  codERP: string = '';
+  codPaisDUE: string = '';
+  naladi: string = '2 - Não';
+  certOrigemAladi: string = '2 - Não';
+  certOrigemComum: string = '2 - Não';
+  certOrigemMercosul: string = '2 - Não';
+  certOrigemSGPC: string = '2 - Não';
+  exigeLicImport: string = '2 - Não';
   paisForm: FormGroup;
 
   private id;
+
+  readonly naladiOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly certOriAladiOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly certOriComumOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly certMercosulOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly certSGPCOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly exigeLIOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -42,7 +81,7 @@ export class PaisFormComponent implements OnInit {
                                     certOrigemComum: [''],
                                     certOrigemMercosul: [''],
                                     certOrigemSGPC: [''],
-                                    exigeLincImport: [''],
+                                    exigeLicImport: [''],
                                     paisIngles: ['', Validators.required],
                                     codAbics: [''],
                                     codigoRIEX: [''],
@@ -61,7 +100,7 @@ export class PaisFormComponent implements OnInit {
     if (id) {
       this.paisService.get(id).subscribe((pais: Pais) => {
         this.paisForm.patchValue(pais);
-        this.title = pais.nome;
+        this.title = "ALTERAR - País";
       });
     }
   }
@@ -97,20 +136,5 @@ export class PaisFormComponent implements OnInit {
         }
       }
     }
-  }
-
-  // ======================================================================================================================
-  public readonly columns: Array<PoLookupColumn> = [
-    { property: 'nickname', label: 'Código' },
-    { property: 'name', label: 'Descrição' }
-  ];
-
-  advancedFilters: Array<PoDynamicFormField> = [
-    { property: 'nickname', divider: 'Selection Informations', optional: true, gridColumns: 6, label: 'Código' },
-    { property: 'name', optional: true, gridColumns: 6 }
-  ];
-
-  fieldFormat(value) {
-    return `${value.label}`;  // `${value.nickname} - ${value.label}`;
   }
 }

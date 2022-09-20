@@ -1,6 +1,7 @@
-<po-page-list p-title="Paises" [p-actions]="actions">
-  <po-table p-container="shadow"
-            p-checkbox
+<po-page-list p-title="Cadastro de Países" [p-actions]="actions">
+  <po-table p-checkbox
+            p-container="shadow"
+            [p-hide-text-overflow]="false"
             [p-loading]="isTableLoading"
             [p-actions]="tableActions"
             [p-actions-right]="true"
@@ -12,7 +13,4 @@
             [p-items]="paises"> </po-table>
 </po-page-list>
 
-<po-modal #advancedModal
-          p-title="Importação CSV"
-          [p-primary-action]="advancedPrimaryAction"
-          [p-secondary-action]="advancedSecundaryAction"> </po-modal>
+<po-modal #advancedModal p-title="Importação CSV" [p-primary-action]="advancedPrimaryAction" [p-secondary-action]="advancedSecundaryAction"> </po-modal>

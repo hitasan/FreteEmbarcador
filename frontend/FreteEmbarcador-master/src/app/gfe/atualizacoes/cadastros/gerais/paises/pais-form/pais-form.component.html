@@ -1,32 +1,28 @@
 <po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
-
-    <form [formGroup]="paisForm">
-      <div class="po-row">
-        <po-input class="po-md-6 po-lg-4" formControlName="codigo" p-label="Cod. do País"> </po-input>
-        <po-input class="po-md-6 po-lg-4" formControlName="nome" p-label="Descrição"> </po-input>
-        <po-input class="po-md-6 po-lg-4" formControlName="sigla" p-label="Sigla"> </po-input>
-
-        <po-lookup class="po-md-6" name="Idioma" p-field-label="label" p-field-value="label" p-help="Selecione o idioma" p-label="Idioma" p-required [p-columns]="columns"
-                   [p-field-format]="fieldFormat" [p-filter-service]="paisService" [p-advanced-filters]="advancedFilters" [p-literals]="{ 'modalTitle': 'Idiomas disponíveis para seleção' }">
-        </po-lookup>
-
-        <po-input class="po-md-6 po-lg-4" formControlName="descIdioma" p-label="Descr. Idioma"> </po-input>
-        <po-input class="po-md-6 po-lg-4" formControlName="dinalad" p-label="Dinalad"> </po-input>
-
-        <po-combo name="naladi" p-label="Naladi" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-        <po-combo name="certOrigemAladi" p-label="C.O Aladi" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-        <po-combo name="certOrigemComum" p-label="C.O. Comum" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-        <po-combo name="certOrigemMercosul" p-label="C.O. Mercosul" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-        <po-combo name="certOrigemSGPC" p-label="C.O. SGPC" [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-        <po-combo name="exigeLincImport" p-label="Exige L.I." [p-options]="[{ value: '2 - Não' }, { value: '1 - Sim' }]"> </po-combo>
-
-        <po-input class="po-md-6 po-lg-4" formControlName="paisIngles" p-label="País Inglês"> </po-input>
-        <po-input class="po-md-6 po-lg-4" formControlName="nacionalidad" p-label="Nacionalidade"> </po-input>
-        <po-input class="po-md-6 po-lg-4" formControlName="codERP" p-label="Codigo ERP"> </po-input>
-
-        <po-lookup class="po-md-6" name="codPaisDUE" p-field-label="label" p-field-value="label" p-help="Selecione o Cod. País D.U.E." p-label="Cod. País D.U.E." [p-columns]="columns"
-                   [p-field-format]="fieldFormat" [p-filter-service]="paisService" [p-advanced-filters]="advancedFilters" [p-literals]="{'modalTitle': 'Cod. País D.U.E. disponíveis para seleção'}">
-        </po-lookup>
-      </div>
-    </form>
+  <form [formGroup]="paisForm">
+    <div class="po-row">
+      <po-input class="po-lg-1" formControlName="codigo" [(ngModel)]="codigo" p-label="Cód. País" p-required> </po-input>
+      <po-input class="po-lg-4" formControlName="nome" [(ngModel)]="nome" p-label="Descrição" p-required> </po-input>
+      <po-input class="po-lg-1" formControlName="sigla" [(ngModel)]="sigla" p-label="Sigla"> </po-input>
+      <po-lookup class="po-lg-2" formControlName="idioma" [(ngModel)]="idioma" p-label="Idioma" p-field-value="idioma" p-field-label="idioma" p-filter-service="http://localhost:3000/idiomas" p-required> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descIdioma" [(ngModel)]="descIdioma" p-label="Descr. Idioma" p-required> </po-input>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-input class="po-lg-1" formControlName="dinalad" [(ngModel)]="dinalad" p-label="Dinalad"> </po-input>
+      <po-select class="po-lg-2" formControlName="naladi" [(ngModel)]="naladi" p-label="Naladi" [p-options]="naladiOpt" p-required> </po-select>
+      <po-select class="po-lg-2" formControlName="certOrigemAladi" [(ngModel)]="certOrigemAladi" p-label="C.O Aladi" [p-options]="certOriAladiOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="certOrigemComum" [(ngModel)]="certOrigemComum" p-label="C.O. Comum" [p-options]="certOriComumOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="certOrigemMercosul" [(ngModel)]="certOrigemMercosul" p-label="C.O. Mercosul" [p-options]="certMercosulOpt"> </po-select>
+      <po-select class="po-lg-2" formControlName="certOrigemSGPC" [(ngModel)]="certOrigemSGPC" p-label="C.O. SGPC" [p-options]="certSGPCOpt"> </po-select>
+    </div>
+    <br />
+    <div class="po-row">
+      <po-select class="po-lg-2" formControlName="exigeLicImport" [(ngModel)]="exigeLicImport" p-label="Exige L.I." [p-options]="exigeLIOpt"> </po-select>
+      <po-input class="po-lg-3" formControlName="paisIngles" [(ngModel)]="paisIngles" p-label="País Inglês" p-required> </po-input>
+      <po-input class="po-lg-4" formControlName="nacionalidad" [(ngModel)]="nacionalidad" p-label="Nacionalidade"> </po-input>
+      <po-input class="po-lg-2" formControlName="codERP" [(ngModel)]="codERP" p-label="Codigo ERP"> </po-input>
+      <po-lookup class="po-lg-2" formControlName="codPaisDUE" [(ngModel)]="codPaisDUE" p-label="Cód. País D.U.E." p-field-value="codigo" p-field-label="codigo" p-filter-service="http://localhost:3000/paisdue"> </po-lookup>
+    </div>
+  </form>
 </po-page-edit>

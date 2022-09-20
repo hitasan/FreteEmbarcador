@@ -39,7 +39,7 @@ export class CidadesListComponent implements OnInit {
     { label: 'Sigla', property: 'sigla', width: '7%' },
     { label: 'CEP Inicial', property: 'cepInicial', width: '8%' },
     { label: 'CEP Final', property: 'cepFinal', width: '8%' },
-    { label: 'Situação', property: 'situacao', width: '7%' }
+    { label: 'Situação', property: 'situacao', width: '7%', type: 'label', labels:[{label: 'Ativo', color: 'color-10', value: '1 - Ativo'},{label: 'Inativo',color: 'color-07', value: '2 - Inativo'}] }
   ];
 
   constructor(
