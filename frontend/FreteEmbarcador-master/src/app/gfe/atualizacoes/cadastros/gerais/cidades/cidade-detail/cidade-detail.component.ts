@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { PoNotificationService, PoDialogService } from '@po-ui/ng-components';
+import { PoNotificationService, PoDialogService, PoTableColumn } from '@po-ui/ng-components';
 
 import { Cidade } from '../cidade.interface';
 import { CidadesService } from '../cidades.service';
@@ -13,8 +13,15 @@ import { CidadesService } from '../cidades.service';
 })
 export class CidadeDetailComponent implements OnInit {
 
-  cidade: Cidade;
   title = 'Visualização';
+  cidade: Cidade;
+  percISSTpOcorr: Array<any>;
+
+  readonly columnsTbl: Array<PoTableColumn> = [
+    { label: 'Tp Ocorrência', property: 'tpOcor', width: '20%' },
+    { label: 'Dsc Tp Oco', property: 'descrTpOco' },
+    { label: '% ISS', property: 'percISS', type: 'number', width: '20%' }
+  ];
 
   constructor(
     private activatedRoute: ActivatedRoute,

@@ -1,39 +1,46 @@
 <po-page-edit (p-save)="save()" (p-cancel)="cancel()" [p-title]="title">
-
   <form [formGroup]="cidadeForm">
     <div class="po-row">
-      <po-input class="po-lg-2" formControlName="cidade" p-label="Código"> </po-input>
-      <po-lookup class="po-lg-2" formControlName="estado" p-label="Estado" p-field-value="nomeestado" p-field-label="nomeestado" p-filter-service="http://localhost:3000/estadosibge"> </po-lookup>
-      <po-input class="po-lg-5" formControlName="nome" p-label="Nome"> </po-input>
-      <po-input class="po-lg-2" formControlName="sigla" p-label="Sigla"> </po-input>
+      <po-input class="po-lg-2" formControlName="cidade" [(ngModel)]="cidade" p-label="Código"> </po-input>
+      <po-input class="po-lg-5" formControlName="nome" [(ngModel)]="nome" p-label="Nome"> </po-input>
+      <po-lookup class="po-lg-2" formControlName="estado" [(ngModel)]="estado" p-label="Estado" p-field-value="nomeestado" p-field-label="nomeestado" p-filter-service="http://localhost:3000/estadosibge"> </po-lookup>
+      <po-input class="po-lg-2" formControlName="sigla" [(ngModel)]="sigla" p-label="Sigla"> </po-input>
     </div>
 
     <div class="po-row">
-      <po-lookup class="po-lg-2" formControlName="pais" p-label="País" p-field-value="codigo" p-field-label="codigo" p-filter-service="http://localhost:3000/paises"> </po-lookup>
-      <po-input class="po-lg-6" formControlName="nomePais" p-label="Nome País" p-disabled="true"> </po-input>
-      <po-combo class="po-lg-2" formControlName="suframa" p-label="Suframa" [p-options]="[{ value: '1 - Sim' },{ value: '2 - Não' }]"> </po-combo>
+      <po-lookup class="po-lg-1" formControlName="pais" [(ngModel)]="pais"  p-label="País" p-field-value="nome" p-field-label="codigo" p-filter-service="http://localhost:3000/pais"> </po-lookup>
+      <po-info class="po-lg-6" formControlName="nomePais" [(ngModel)]="nomePais" p-label="Nome País" p-disabled="true" [p-value]="pais"> </po-info>
+      <po-select class="po-lg-2" formControlName="suframa" [(ngModel)]="suframa" p-label="Suframa" [p-options]="suframaOpt"> </po-select>
+      <po-number class="po-lg-2" formControlName="percISSFrete" [(ngModel)]="percISSFrete" p-label="% ISS Frete" p-icon="po-icon-calculator" p-max=999999 p-step="2" p-maxlength=6 > </po-number>
     </div>
 
     <div class="po-row">
-      <po-input class="po-lg-2" formControlName="cepInicial" p-mask="99999-999" p-label="CEP Inicial"> </po-input>
-      <po-input class="po-lg-2" formControlName="cepFinal" p-mask="99999-999" p-label="CEP Final"> </po-input>
-      <po-number class="po-lg-2" formControlName="percISSFrete" p-label="% ISS Frete" p-icon="po-icon-calculator" p-max=999999 p-step="2" p-maxlength=6 > </po-number>
-      <po-combo class="po-lg-2" formControlName="situacao" p-label="Situação" [p-options]="[{ value: '1 - Ativo' },{ value: '2 - Inativo' }]"> </po-combo>
+      <po-input class="po-lg-2" formControlName="cepInicial" [(ngModel)]="cepInicial" p-mask="99999-999" p-label="CEP Inicial"> </po-input>
+      <po-input class="po-lg-2" formControlName="cepFinal" [(ngModel)]="cepFinal" p-mask="99999-999" p-label="CEP Final"> </po-input>
+      <po-select class="po-lg-2" formControlName="situacao" [(ngModel)]="situacao" p-label="Situação" [p-options]="situacaoOpt"> </po-select>
     </div>
     <br />
     <div class="po-row">
-      <po-divider class="po-md-12" p-label="% ISS por Tipo de Ocorrência"></po-divider>
-      <br />
-      <po-table p-container="shadow"
-                p-checkbox
-                p-height="250"
-                [p-loading]="isTableLoading"
-                [p-columns]="columnsTbl"
-                [p-selectable]="true"
-                [p-single-select]="true"
-                [p-sort]="true"
-                [p-striped]="true"
-                [p-items]="percISSTpOcorr"> </po-table>
+      <po-container class="po-lg-12">
+        <po-divider class="po-lg-12" p-label="% ISS por Tipo de Ocorrência"></po-divider>
+        <po-button #buttonClick p-label="Incluir"> </po-button>
+        <br /><br />
+        <po-table p-container="shadow" p-checkbox p-height="250"
+                  [p-selectable]="true" [p-single-select]="true" [p-sort]="true" [p-striped]="true"
+                  [p-loading]="isTableLoading" [p-columns]="columnsTbl" [p-items]="percISSTpOcorr"> </po-table>
+      </po-container>
     </div>
+    <br /><br />
   </form>
 </po-page-edit>
+
+<po-popover p-trigger="click" [p-hide-arrow]="properties.includes('hideArrow')" [p-position]="position" [p-target]="buttonClickRef">
+  <form [formGroup]="percIssForm">
+    <div class="po-row">
+      <po-input class="po-lg-2" formControlName="tpOcor" [(ngModel)]="tpOcor" p-label="Tipo Ocorr."> </po-input>
+      <po-input class="po-lg-6" formControlName="descOcor" [(ngModel)]="descOcor" p-label="Descrição"> </po-input>
+      <po-number class="po-lg-2" formControlName="percISS" [(ngModel)]="percISS" p-label="% ISS" p-icon="po-icon-calculator" p-max=999999 p-step="2" p-maxlength=6 > </po-number>
+      <po-container class="po-lg-2 btnDown" p-no-border="true"><po-button #btnOk p-label="Ok"></po-button></po-container>
+    </div>
+  </form>
+</po-popover>

@@ -1,40 +1,31 @@
 <po-page-detail (p-back)="back()" (p-remove)="remove()" (p-edit)="edit()" [p-title]="title">
-
   <div class="po-row">
     <po-info class="po-lg-2" p-label="Código" [p-value]="cidade.cidade"> </po-info>
     <po-info class="po-lg-2" p-label="Estado" [p-value]="cidade.estado"> </po-info>
     <po-info class="po-lg-6" p-label="Nome" [p-value]="cidade.nome"> </po-info>
+    <po-info class="po-lg-2" p-label="Sigla" [p-value]="cidade.sigla"> </po-info>
   </div>
 
   <div class="po-row">
     <po-info class="po-lg-2" p-label="País" [p-value]="cidade.pais"> </po-info>
-    <!--<po-info class="po-lg-6" p-label="Nome País" [p-value]="cidade.nomePais"> </po-info>-->
-    <po-info class="po-lg-2" p-label="Sigla" [p-value]="cidade.sigla"> </po-info>
+    <!--<po-info class="po-lg-5" p-label="Nome País" [p-value]="cidade.nomePais"> </po-info>-->
     <po-info class="po-lg-2" p-label="Suframa" [p-value]="cidade.suframa"> </po-info>
+    <po-info class="po-md-2" p-label="CEP Inicial" [p-value]="cidade.cepInicial" p-mask="99999-999"> </po-info>
+    <po-info class="po-md-2" p-label="CEP Final" [p-value]="cidade.cepFinal" p-mask="99999-999"> </po-info>
   </div>
 
   <div class="po-row">
-    <po-info class="po-md-2" p-label="CEP Inicial" [p-value]="cidade.cepInicial" p-mask="99999-999"> </po-info>
-    <po-info class="po-md-2" p-label="CEP Final" [p-value]="cidade.cepFinal" p-mask="99999-999"> </po-info>
     <po-info class="po-md-3" p-label="% ISS Frete" [p-value]="cidade.percISSFrete" p-mask="999,99999"> </po-info>
     <po-info class="po-lg-2" p-label="Situação" [p-value]="cidade.situacao"> </po-info>
   </div>
   <br />
   <div class="po-row">
-    <po-divider class="po-md-12" p-label="% ISS por Tipo de Ocorrência"></po-divider>
-    <br />
-  <!--
-    <po-table p-container="shadow"
-              p-checkbox
-              p-height="250"
-              [p-loading]="isTableLoading"
-              [p-columns]="columnsTbl"
-              [p-selectable]="true"
-              [p-single-select]="true"
-              [p-sort]="true"
-              [p-striped]="true"
-              [p-items]="percISSTpOcorr"> </po-table>
-  -->
+    <!--<po-container class="po-lg-12">-->
+      <po-divider class="po-lg-12" p-label="% ISS por Tipo de Ocorrência"></po-divider>
+      <po-table p-container="shadow" p-checkbox p-height="250" p-loading="false"
+                [p-selectable]="false" [p-single-select]="true" [p-sort]="true" [p-striped]="true"
+                [p-columns]="columnsTbl" [p-items]="percISSTpOcorr"> </po-table>
+    <!--</po-container>-->
   </div>
-
+  <br /><br />
 </po-page-detail>

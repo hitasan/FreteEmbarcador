@@ -1,8 +1,8 @@
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { PoNotificationService, PoLookupColumn, PoDynamicFormField, PoTableColumn } from '@po-ui/ng-components';
+import { PoNotificationService, PoTableColumn, PoSelectOption, PoDialogService, PoTableAction } from '@po-ui/ng-components';
 
 import { CidadesService } from '../cidades.service';
 import { Cidade } from '../cidade.interface';
@@ -13,19 +13,39 @@ import { Cidade } from '../cidade.interface';
   styleUrls: ['./cidade-form.component.css']
 })
 export class CidadeFormComponent implements OnInit {
+  @ViewChild('buttonClick', { read: ElementRef, static: true }) buttonClickRef: ElementRef;
 
-  title = 'Cidade - INCLUIR';
   cidadeForm: FormGroup;
+  title = 'Cidade - INCLUIR';
+  pais: string;
+  nomePais: string;
+  cidade: string;
+  nome: string;
+  estado: string;
+  sigla: string;
+  suframa: string = '2 - Não';
+  percISSFrete: number;
+  cepInicial: string;
+  cepFinal: string;
+  situacao: string = '1 - Ativo';
 
-  percISSTpOcorr: Array<any>;
   isTableLoading = false;
 
   private id;
 
   readonly columnsTbl: Array<PoTableColumn> = [
-    { label: 'Tp Ocorrência', property: 'tpOcor', width: '10%' },
+    { label: 'Tp Ocorrência', property: 'tpOcor', width: '20%' },
     { label: 'Dsc Tp Oco', property: 'descrTpOco' },
     { label: '% ISS', property: 'percISS', type: 'number', width: '20%' }
+  ];
+
+  readonly suframaOpt: Array<PoSelectOption> = [
+    { label: '1 - Sim', value: '1 - Sim' },
+    { label: '2 - Não', value: '2 - Não' }
+  ];
+  readonly situacaoOpt: Array<PoSelectOption> = [
+    { label: '1 - Ativo', value: '1 - Ativo' },
+    { label: '2 - Inativo', value: '2 - Inativo' }
   ];
 
   constructor(
@@ -33,13 +53,13 @@ export class CidadeFormComponent implements OnInit {
     private fb: FormBuilder,
     private notification: PoNotificationService,
     private router: Router,
+    private dialog: PoDialogService,
     private cidadeService: CidadesService) {
       const { id } = this.activatedRoute.snapshot.params;
       this.id = id;
   }
 
   ngOnInit() {
-    //this.isTableLoading = true;
     this.cidadeForm = this.fb.group({ cidade: ['', Validators.required],
                                       nome: ['', Validators.required],
                                       estado: ['', Validators.required],
@@ -53,6 +73,11 @@ export class CidadeFormComponent implements OnInit {
                                       regiaoRelat: ['']
                                     });
 
+    this.percIssForm = this.fb.group({ tpOcor: ['', Validators.required],
+                                       descOcor: [''],
+                                       VlrPISS: ['', Validators.required]
+                                    });
+
     this.loadData(this.id);
   }
 
@@ -60,7 +85,8 @@ export class CidadeFormComponent implements OnInit {
     if (id) {
       this.cidadeService.get(id).subscribe((cidade: Cidade) => {
         this.cidadeForm.patchValue(cidade);
-
+        this.percIssForm.patchValue(cidade.percIss);
+        this.isTableLoading = false;
         this.title = "TESTANDO CADASTRO CIDADES";
       });
     }
@@ -101,19 +127,44 @@ export class CidadeFormComponent implements OnInit {
     }
   }
 
+  //------------------------------------------------------------------------
+  //GRID
+  //------------------------------------------------------------------------
+  position: string = 'right-top';
+  properties: Array<string> = [];
 
-  // ======================================================================================================================
-  public readonly columns: Array<PoLookupColumn> = [
-    { property: 'nickname', label: 'Código' },
-    { property: 'name', label: 'Descrição' }
+  percISSTpOcorr: Array<any>;
+
+  percIssForm: FormGroup;
+  tpOcor: string;
+  descOcor: string;
+  percISS: number = 0.0;
+
+  readonly tableActions: Array<PoTableAction> = [
+    { label: 'Editar' , separator: true, type: 'default', icon: 'po-icon-edit'/*, action: removeGrid.bind(this)*/},
+    { label: 'Remover', separator: true, type: 'danger' , icon: 'po-icon-delete'/*, action: removeGrid.bind(this)*/ }
   ];
 
-  advancedFilters: Array<PoDynamicFormField> = [
-    { property: 'nickname', divider: 'Selection Informations', optional: true, gridColumns: 6, label: 'Código' },
-    { property: 'name', optional: true, gridColumns: 6 }
-  ];
+  addGrid() {
+    if (this.percIssForm.invalid) {
+      this.markAsDirtyInvalidControls(this.percIssForm.controls);
+      this.notification.warning('Formulário precisa ser preenchido corretamente.');
+      return;
+    }
 
-  fieldFormat(value) {
-    return `${value.label}`;  // `${value.nickname} - ${value.label}`;
+    // REGRA PARA ADICIONAR NO GRID
+  }
+
+  removeGrid({ id }: Cidade) {
+    this.dialog.confirm({
+      message: 'Tem certeza que deseja remover esta cidade?',
+      title: 'Remoção',
+      confirm: this.confirmRemove.bind(this, id)
+    });
+  }
+
+  private confirmRemove(id: number) {
+    this.isTableLoading = true;
+    // REGRA PARA REMOVER DO GRID
   }
 }

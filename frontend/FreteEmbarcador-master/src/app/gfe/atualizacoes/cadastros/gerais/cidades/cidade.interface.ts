@@ -12,4 +12,5 @@ export interface Cidade {
   percISSFrete?: number;
   situacao: string;
   regiaoRelat?: string;
+  percIss?: object;
 }
