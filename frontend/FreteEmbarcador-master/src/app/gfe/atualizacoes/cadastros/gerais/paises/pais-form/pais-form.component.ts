@@ -137,4 +137,12 @@ export class PaisFormComponent implements OnInit {
       }
     }
   }
+
+
+  changeOptions(event): void {
+    this.paisService.getIdioma(event).subscribe(
+      result => { this.descIdioma = result; this.notification.success(result)},
+      err => {this.notification.success(err); console.error(err)}
+    );
+  }
 }

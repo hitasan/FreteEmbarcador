@@ -4,8 +4,8 @@
       <po-input class="po-lg-1" formControlName="codigo" [(ngModel)]="codigo" p-label="Cód. País" p-required> </po-input>
       <po-input class="po-lg-4" formControlName="nome" [(ngModel)]="nome" p-label="Descrição" p-required> </po-input>
       <po-input class="po-lg-1" formControlName="sigla" [(ngModel)]="sigla" p-label="Sigla"> </po-input>
-      <po-lookup class="po-lg-2" formControlName="idioma" [(ngModel)]="idioma" p-label="Idioma" p-field-value="idioma" p-field-label="idioma" p-filter-service="http://localhost:3000/idiomas" p-required> </po-lookup>
-      <po-input class="po-lg-4" formControlName="descIdioma" [(ngModel)]="descIdioma" p-label="Descr. Idioma" p-required> </po-input>
+      <po-lookup class="po-lg-1" formControlName="idioma" [(ngModel)]="idioma" p-label="Idioma" p-field-value="id" p-field-label="id" p-filter-service="http://localhost:3000/idiomas" (p-change)="changeOptions($event)" p-required> </po-lookup>
+      <po-input class="po-lg-4" formControlName="descIdioma" [(ngModel)]="descIdioma" p-label="Descr. Idioma" p-disabled> </po-input>
     </div>
     <br />
     <div class="po-row">

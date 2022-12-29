@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demo-po-app": {
+    "FreteEmbarcador-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo-po-app",
+            "outputPath": "dist/FreteEmbarcador-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -48,7 +48,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demo-po-app:build"
+            "browserTarget": "FreteEmbarcador-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo-po-app:build:production"
+              "browserTarget": "FreteEmbarcador-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demo-po-app:build"
+            "browserTarget": "FreteEmbarcador-app:build"
           }
         },
         "test": {
@@ -125,16 +125,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demo-po-app:serve"
+            "devServerTarget": "FreteEmbarcador-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demo-po-app:serve:production"
+              "devServerTarget": "FreteEmbarcador-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "demo-po-app"
+  "defaultProject": "FreteEmbarcador-app"
 }
